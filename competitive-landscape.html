@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Competitive Landscape — ForestSAT</title>
+<meta name="description" content="A long-form differentiation: ForestSAT vs Vibrant Planet, Pano AI, OroraTech, Overstory, AiDASH, Technosylva, Pachama, Sylvera, Kayrros, LiveEO and others. Where each player wins, and where ForestSAT is structurally different.">
+<style>
+:root {
+  --forest-deep: #0F3D2E;
+  --forest-mid:  #1B5E3E;
+  --forest-light:#2D8B5F;
+  --sat-blue:    #1E9CD8;
+  --ember-red:   #C8341A;
+  --ember-orange:#E8711A;
+  --ember-amber: #F2B23E;
+  --ink:         #0F1A14;
+  --charcoal:    #1F2A23;
+  --slate:       #475569;
+  --smoke:       #94A3B8;
+  --paper:       #F5F1EA;
+  --paper-light: #FAF8F3;
+  --card-green:  #EAF2EC;
+  --card-ember:  #FCEEE6;
+  --card-amber:  #FBF3DD;
+  --card-slate:  #ECEFF3;
+  --line:        #E2E0DA;
+  --white:       #FFFFFF;
+  --font-head: Georgia, 'Times New Roman', serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, 'Helvetica Neue', Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  background: var(--paper-light);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--forest-mid); text-decoration: none; }
+a:hover { color: var(--ember-orange); }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-logo img { height: 36px; width: auto; }
+.site-nav { display: flex; gap: 22px; font-size: 14px; font-weight: 500; color: var(--charcoal); flex-wrap: wrap; }
+.site-nav a { color: var(--charcoal); }
+.site-nav a:hover { color: var(--ember-orange); }
+.cta-btn {
+  display: inline-block; padding: 10px 20px;
+  background: var(--ember-orange); color: var(--white) !important;
+  border-radius: 4px; font-weight: 600; font-size: 14px;
+}
+.cta-btn:hover { background: var(--ember-red); color: var(--white) !important; }
+@media (max-width: 980px) { .site-nav { display: none; } }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-mid) 100%);
+  color: var(--white);
+  padding: 90px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(232,113,26,0.12) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(30,156,216,0.10) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero .container { position: relative; }
+.eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--ember-amber); margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: var(--font-head); font-size: 52px; line-height: 1.12;
+  font-weight: 700; margin-bottom: 24px; max-width: 980px;
+}
+.hero h1 em { color: var(--ember-amber); font-style: italic; }
+.hero .lead {
+  font-size: 19px; line-height: 1.55; max-width: 820px;
+  color: rgba(255,255,255,0.9); margin-bottom: 32px;
+}
+.hero-disclaimer {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  max-width: 820px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 16px;
+}
+@media (max-width: 760px) {
+  .hero { padding: 50px 0 70px; }
+  .hero h1 { font-size: 32px; }
+  .hero .lead { font-size: 16px; }
+}
+
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+section { padding: 70px 0; }
+section.alt { background: var(--white); }
+section.dark { background: var(--ink); color: var(--white); }
+section.dark p, section.dark li { color: rgba(255,255,255,0.85); }
+.section-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--ember-orange); margin-bottom: 14px;
+}
+section.dark .section-eyebrow { color: var(--ember-amber); }
+.section-title {
+  font-family: var(--font-head); font-size: 38px; line-height: 1.2;
+  font-weight: 700; color: var(--ink); margin-bottom: 16px; max-width: 920px;
+}
+section.dark .section-title { color: var(--white); }
+.section-lead {
+  font-size: 17px; line-height: 1.65; color: var(--slate);
+  max-width: 860px; margin-bottom: 36px;
+}
+section.dark .section-lead { color: rgba(255,255,255,0.78); }
+@media (max-width: 760px) {
+  section { padding: 50px 0; }
+  .section-title { font-size: 28px; }
+  .section-lead { font-size: 15.5px; }
+}
+
+/* ============================================================
+   FRAMING: 5 categories overview
+   ============================================================ */
+.cat-overview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 980px) { .cat-overview { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .cat-overview { grid-template-columns: 1fr; } }
+.cat-tag {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--forest-mid);
+  border-radius: 6px;
+  padding: 18px 16px;
+}
+.cat-tag:nth-child(1) { border-top-color: var(--forest-light); }
+.cat-tag:nth-child(2) { border-top-color: var(--ember-orange); }
+.cat-tag:nth-child(3) { border-top-color: var(--sat-blue); }
+.cat-tag:nth-child(4) { border-top-color: var(--ember-amber); }
+.cat-tag:nth-child(5) { border-top-color: var(--ember-red); }
+.cat-tag .label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--smoke); margin-bottom: 6px;
+}
+.cat-tag h4 {
+  font-family: var(--font-head); font-size: 15px;
+  color: var(--forest-deep); margin-bottom: 8px; line-height: 1.3;
+}
+.cat-tag .companies {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--slate);
+}
+
+/* ============================================================
+   COMPETITOR PROFILE CARDS — long form
+   ============================================================ */
+.profile {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 36px 40px;
+  margin-bottom: 22px;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+}
+.profile::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--forest-mid);
+  border-radius: 10px 10px 0 0;
+}
+.profile.cat-prevention::before { background: var(--forest-light); }
+.profile.cat-detection::before { background: var(--ember-orange); }
+.profile.cat-vegetation::before { background: var(--ember-amber); }
+.profile.cat-mrv::before { background: var(--sat-blue); }
+.profile.cat-eo::before { background: var(--forest-mid); }
+.profile.cat-insurance::before { background: var(--ember-red); }
+.profile.cat-restore::before { background: var(--forest-deep); }
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.profile-header .name-block { flex: 1; min-width: 240px; }
+.profile-cat-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ember-orange);
+  margin-bottom: 8px;
+}
+.profile.cat-prevention .profile-cat-label { color: var(--forest-light); }
+.profile.cat-detection .profile-cat-label { color: var(--ember-orange); }
+.profile.cat-vegetation .profile-cat-label { color: var(--ember-amber); }
+.profile.cat-mrv .profile-cat-label { color: var(--sat-blue); }
+.profile.cat-eo .profile-cat-label { color: var(--forest-mid); }
+.profile.cat-insurance .profile-cat-label { color: var(--ember-red); }
+.profile.cat-restore .profile-cat-label { color: var(--forest-deep); }
+
+.profile h3 {
+  font-family: var(--font-head);
+  font-size: 30px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+.profile-tagline {
+  font-size: 15px;
+  color: var(--slate);
+  font-style: italic;
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  min-width: 280px;
+}
+@media (max-width: 760px) {
+  .profile-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+  .profile-stats { grid-template-columns: 1fr; }
+}
+.stat-box {
+  background: var(--paper-light);
+  border-radius: 4px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.stat-box .v {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--forest-deep);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+.stat-box .l {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+
+.profile-body { font-size: 15px; line-height: 1.7; }
+.profile-body p { margin-bottom: 14px; }
+.profile-body h4 {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--forest-deep);
+  margin: 24px 0 10px;
+}
+.profile-body strong { color: var(--charcoal); font-weight: 700; }
+
+.diff-block {
+  background: linear-gradient(135deg, var(--card-ember) 0%, #FBF3DD 100%);
+  border-left: 4px solid var(--ember-orange);
+  padding: 22px 26px;
+  border-radius: 0 6px 6px 0;
+  margin: 22px 0 6px;
+}
+.diff-block h4 {
+  font-family: var(--font-head);
+  font-size: 17px;
+  color: var(--ember-red);
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.diff-block p {
+  font-size: 14.5px;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin: 0;
+}
+.diff-block strong { color: var(--ember-red); }
+
+@media (max-width: 760px) {
+  .profile { padding: 28px 22px; }
+  .profile h3 { font-size: 24px; }
+  .profile-body { font-size: 14.5px; }
+}
+
+/* ============================================================
+   MASTER MATRIX
+   ============================================================ */
+.matrix-hint {
+  display: none;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--smoke);
+  font-style: italic;
+}
+@media (max-width: 1100px) { .matrix-hint { display: block; } }
+.matrix-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  -webkit-overflow-scrolling: touch;
+}
+.matrix {
+  width: 100%; border-collapse: collapse; font-size: 12.5px;
+  background: var(--white); min-width: 1080px;
+}
+.matrix thead { background: var(--forest-deep); color: var(--white); }
+.matrix th {
+  padding: 14px 8px; text-align: center; font-weight: 600;
+  font-size: 11px; letter-spacing: 0.4px;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  vertical-align: bottom;
+}
+.matrix th.cap-col { text-align: left; padding: 14px 12px; }
+.matrix th:last-child { border-right: none; }
+.matrix th.fs-th { background: var(--ember-orange); color: var(--white); }
+.matrix td {
+  padding: 10px 6px; text-align: center;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  vertical-align: middle;
+  color: var(--charcoal);
+  font-size: 12px;
+}
+.matrix td:last-child { border-right: none; }
+.matrix td.cap-row {
+  text-align: left; padding: 10px 12px;
+  font-weight: 600; color: var(--forest-deep);
+  background: var(--paper-light); white-space: nowrap;
+}
+.matrix td.fs-cell { background: var(--card-ember); font-weight: 600; }
+.matrix .yes { color: var(--forest-light); font-size: 18px; font-weight: 700; }
+.matrix .partial { color: var(--ember-amber); font-size: 18px; font-weight: 700; }
+.matrix .no { color: #C5C5C5; font-size: 14px; font-weight: 700; }
+.matrix-legend {
+  margin-top: 14px; font-size: 12.5px; color: var(--slate);
+  display: flex; gap: 22px; flex-wrap: wrap;
+}
+.matrix-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.matrix-legend .yes { color: var(--forest-light); }
+.matrix-legend .partial { color: var(--ember-amber); }
+.matrix-legend .no { color: #C5C5C5; }
+
+/* ============================================================
+   CONCLUSION
+   ============================================================ */
+.conclusion {
+  background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-mid) 50%, var(--forest-light) 100%);
+  color: var(--white);
+  padding: 90px 0;
+}
+.conclusion .container { max-width: 880px; }
+.conclusion h2 {
+  font-family: var(--font-head);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+.conclusion h2 em { color: var(--ember-amber); font-style: italic; }
+.conclusion p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 16px;
+}
+.conclusion .signoff {
+  margin-top: 32px;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ember-amber);
+  font-weight: 600;
+}
+
+/* ============================================================
+   CTA + FOOTER
+   ============================================================ */
+.cta-footer { background: var(--ink); color: var(--white); padding: 70px 0; text-align: center; }
+.cta-footer h2 { font-family: var(--font-head); font-size: 32px; margin-bottom: 14px; }
+.cta-footer p {
+  font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 28px;
+  max-width: 660px; margin-left: auto; margin-right: auto;
+}
+.cta-footer .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 13px 28px; border-radius: 4px; font-weight: 600; font-size: 14.5px; }
+.btn-primary { background: var(--ember-orange); color: var(--white) !important; }
+.btn-primary:hover { background: var(--ember-red); }
+.btn-secondary { background: transparent; color: var(--white) !important; border: 1px solid rgba(255,255,255,0.4); }
+.btn-secondary:hover { background: rgba(255,255,255,0.10); }
+.site-footer {
+  background: var(--ink); color: rgba(255,255,255,0.5); padding: 26px 0;
+  font-size: 12.5px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.site-footer a { color: rgba(255,255,255,0.7); }
+.site-footer .tagline {
+  color: var(--ember-amber); font-style: italic; margin-bottom: 8px;
+  font-family: var(--font-head); font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="site-logo"> 
+      <a href="https://forestsatai.com" class="nav-brand">
+     <span class="logo"><img src="img/logo.png"  alt="ForestSAT"></span>
+  </a>
+    </div>
+    <nav class="site-nav">
+      <a href="#categories">Categories</a>
+      <a href="#prevention">Prevention</a>
+      <a href="#detection">Detection</a>
+      <a href="#vegetation">Vegetation</a>
+      <a href="#mrv">Carbon &amp; Nature MRV</a>
+      <a href="#eo-saas">EO SaaS</a>
+      <a href="#matrix">Matrix</a>
+    </nav>
+    <a href="#contact" class="cta-btn">Talk to Us</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">The Competitive Landscape</div>
+    <h1>The wildfire intelligence ecosystem &mdash; <em>and where ForestSAT is structurally different</em>.</h1>
+    <p class="lead">
+      No single competitor builds what ForestSAT builds. The wildfire and Earth Observation SaaS market is split across at least five categories &mdash; prevention planning, active detection, vegetation intelligence, carbon and nature MRV, and broad EO/GIS SaaS &mdash; each populated by serious, well-funded companies executing well in their niche. This page profiles the most important players one by one, explains what each does well, and shows the specific point at which ForestSAT&rsquo;s integrated, lifecycle-spanning, MVR-anchored architecture diverges from theirs.
+    </p>
+    <p class="hero-disclaimer">
+      Data on competitors is drawn from public sources (company websites, press releases, funding announcements, industry reporting) as of the date of writing. Funding figures, customer counts and valuation estimates are approximate and may evolve. Pure satellite operators (Planet Labs, Maxar, Airbus DS, BlackSky, ICEYE) are intentionally excluded from this analysis &mdash; they are upstream data providers, not application-layer competitors. The focus here is SaaS, PaaS and platform players in the wildfire and adjacent climate-risk segments.
+    </p>
+  </div>
+</section>
+
+<!-- CATEGORY OVERVIEW -->
+<section id="categories">
+  <div class="container">
+    <div class="section-eyebrow">The Five Categories</div>
+    <h2 class="section-title">The wildfire SaaS ecosystem fragments into five distinct categories.</h2>
+    <p class="section-lead">
+      Each category has emerged because it solves one specific problem inside the wildfire lifecycle. None of them solves all of them. ForestSAT&rsquo;s thesis is that buyers &mdash; counties, states, utilities, insurers, forest departments, climate-finance institutions &mdash; need an integrated operating system, not a patchwork of point tools, and that the verification (MVR) layer is the missing piece that makes the entire stack accountable to the budgets flowing through it.
+    </p>
+    <div class="cat-overview">
+      <div class="cat-tag">
+        <div class="label">01 &middot; Prevention</div>
+        <h4>Wildfire resilience &amp; prevention planning</h4>
+        <div class="companies">Vibrant Planet, Pyrologix, Technosylva, BurnBot</div>
+      </div>
+      <div class="cat-tag">
+        <div class="label">02 &middot; Detection</div>
+        <h4>Active wildfire detection &amp; response</h4>
+        <div class="companies">Pano AI, OroraTech</div>
+      </div>
+      <div class="cat-tag">
+        <div class="label">03 &middot; Vegetation</div>
+        <h4>Utility vegetation &amp; infrastructure risk</h4>
+        <div class="companies">Overstory, AiDASH, LiveEO</div>
+      </div>
+      <div class="cat-tag">
+        <div class="label">04 &middot; MRV</div>
+        <h4>Carbon, forest &amp; nature MRV</h4>
+        <div class="companies">Pachama, Sylvera, Chloris, Renoster, NatureMetrics</div>
+      </div>
+      <div class="cat-tag">
+        <div class="label">05 &middot; Adjacent</div>
+        <h4>EO/GIS SaaS &amp; insurance analytics</h4>
+        <div class="companies">Kayrros, Satelligence, SpaceKnow, ZestyAI, Mast</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY 1: PREVENTION & RESILIENCE
+     ============================================================ -->
+<section id="prevention" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">Category 01 &middot; Prevention &amp; Resilience Planning</div>
+    <h2 class="section-title">Software for planning what to do <em>before</em> the fire starts.</h2>
+    <p class="section-lead">
+      This category emerged from forest-management science and decision-support research. Customers are land managers, fire districts, counties, forest departments and federal agencies. The product is fundamentally a planning tool: <em>given a landscape, given a budget, given a risk model &mdash; where should fuel treatments, prescribed burns and defensible-space work be sequenced for maximum risk reduction?</em>
+    </p>
+
+    <!-- VIBRANT PLANET -->
+    <div class="profile cat-prevention">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Prevention &middot; Forest Resilience Planning</div>
+          <h3>Vibrant Planet</h3>
+          <div class="profile-tagline">The closest direct comparable to ForestSAT in the prevention layer &mdash; and the most strategically important competitor to study.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$45M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">2020</div><div class="l">Founded</div></div>
+          <div class="stat-box"><div class="v">Truckee, CA</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Vibrant Planet is a Public Benefit Corporation founded in 2020 by alumni of Netflix, Meta and Lyft. Its platform has become the closest North American direct competitor to ForestSAT&rsquo;s prevention layer. Vibrant Planet has raised approximately $45M across seed and Series A-II rounds (Citi Ventures, Ecosystem Integrity Fund, Day One Ventures and others), is a partner of CAL FIRE, and has built deep relationships across federal and state forest-management agencies.
+        </p>
+        <p>
+          The platform centers on a planning tool called <strong>Land Tender</strong>, which lets land managers organize a landscape into management units, build sequenced fuel-treatment projects with the optimization engine <strong>ForSys</strong>, and balance treatment plans against budget, workforce and acreage constraints. Hazard and risk modeling is powered by <strong>Pyrologix</strong>, a wildfire-analytics research firm Vibrant Planet acquired and which authors many of the industry-standard data layers (Burn Probability, Wildfire Hazard Potential, Risk to Potential Structures) used across the U.S.
+        </p>
+        <p>
+          Customer evidence is real. Truckee Fire built its Community Wildfire Protection Plan in nine weeks using the platform. Placer County is a multi-year partner. Vibrant Planet&rsquo;s own &ldquo;Cost of Delay&rdquo; analysis with Megafire Action argues that $138M in resilience treatments across seven communities could avoid more than $1B in structure losses. The company recently hired Dan Myers (former Stripe head of business operations) as COO to scale a community wildfire resilience vertical. Peer-reviewed research by their team has been published in <em>Ecological Modelling</em> in 2026.
+        </p>
+        <p>
+          What Vibrant Planet does extraordinarily well: it has the deepest domain credibility in U.S. forest-restoration planning, the strongest agency relationships, and via Pyrologix it owns the U.S. industry-standard hazard models. Anyone selling wildfire prevention software in the U.S. competes with Vibrant Planet on the prevention slice of the lifecycle.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Vibrant Planet is a <strong>prevention-planning specialist</strong>. It is the best company in North America at translating risk maps into sequenced treatment plans. ForestSAT is a <strong>full-lifecycle operating system</strong> &mdash; prediction, prevention, MVR, response and recovery as a single platform. A Vibrant Planet customer needs separate tools for active-fire response, post-fire damage assessment, and verification of whether the treatments they planned were actually completed and reduced risk. ForestSAT&rsquo;s <strong>MVR module</strong> in particular has no analog in Vibrant Planet&rsquo;s product &mdash; verification of prevention spending is an open category, and it is the layer that turns a planning tool into a budget-control system. ForestSAT also sits outside the U.S.-centric Pyrologix ecosystem, with science published against megafires in California, Portugal and Cyprus &mdash; a Mediterranean and trans-Atlantic footprint Vibrant Planet does not yet have.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNOSYLVA -->
+    <div class="profile cat-prevention">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Prevention &middot; Wildfire Modeling Science</div>
+          <h3>Technosylva</h3>
+          <div class="profile-tagline">A 28-year-old wildfire modeling specialist running 1B+ daily fire-risk simulations for utilities. The deepest pure science engine in the segment.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">25+</div><div class="l">Utility customers</div></div>
+          <div class="stat-box"><div class="v">1B+</div><div class="l">Daily simulations</div></div>
+          <div class="stat-box"><div class="v">1997</div><div class="l">Founded</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Technosylva, headquartered in La Jolla, California with offices in Le&oacute;n, Spain and Calgary, Canada, has been building wildfire and extreme-weather modeling software since 1997. It is the deepest pure-science engine in the wildfire segment. The company runs more than one billion daily wildfire risk simulations using AI on hundreds of science-driven variables, producing real-time fire-risk intelligence at the asset granularity utilities need.
+        </p>
+        <p>
+          Technosylva&rsquo;s core customer base is electric utilities under regulatory wildfire-mitigation mandates, plus insurance carriers and government agencies. In August 2025 Technosylva announced a strategic partnership with AiDASH, integrating Technosylva&rsquo;s wildfire modeling with AiDASH&rsquo;s satellite-based vegetation monitoring &mdash; a clear signal that even the deepest-science wildfire vendor needs to bolt on vegetation intelligence to remain competitive.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Technosylva is, in essence, a <strong>simulation engine sold into utility GIS stacks</strong>. It is brilliant at what it does &mdash; calculating fire behavior given vegetation, weather and topography &mdash; but it does not by itself give a county or a forest department a planning tool, an MVR record, or an integrated response and recovery workflow. ForestSAT covers the full lifecycle in one platform and adds the <strong>MVR layer</strong> that makes prevention spending auditable. The Technosylva-AiDASH partnership shows the industry direction: customers want more than a simulation engine. ForestSAT is built that way from inception, not assembled through partnerships.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BURNBOT -->
+    <div class="profile cat-prevention">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Prevention &middot; Robotic Fuel Treatment</div>
+          <h3>BurnBot</h3>
+          <div class="profile-tagline">A robotics company executing prevention work on the ground. Complementary to ForestSAT, not competing.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">$20M</div><div class="l">Series A</div></div>
+          <div class="stat-box"><div class="v">Robotics</div><div class="l">Hardware</div></div>
+          <div class="stat-box"><div class="v">Execution</div><div class="l">Layer</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          BurnBot is a robotics-powered vegetation-management company, not a software platform. It builds machines that execute precision controlled burns and mechanical fuel treatment on the ground &mdash; the physical action that prevention planning recommends. In July 2025 BurnBot launched the &ldquo;first AI + robotics wildfire mitigation system&rdquo; with AiDASH, combining daily satellite-driven risk detection with on-the-ground execution.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            BurnBot is <strong>not a competitor</strong> &mdash; it is a future <strong>execution partner</strong>. ForestSAT identifies where treatment is needed and verifies what was done. BurnBot is one of the parties that physically performs the treatment. The MVR layer in ForestSAT is exactly the system that would close the loop on a BurnBot deployment: verifying that the robotic crew actually treated the area planned, that fuel loads dropped, and that risk was reduced. The natural relationship between ForestSAT and BurnBot is integration, not competition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY 2: DETECTION
+     ============================================================ -->
+<section id="detection">
+  <div class="container">
+    <div class="section-eyebrow">Category 02 &middot; Active Detection &amp; Response</div>
+    <h2 class="section-title">Companies that watch for fires <em>once they have started</em>.</h2>
+    <p class="section-lead">
+      Detection is the most heavily funded and most visible part of the wildfire SaaS ecosystem. Two companies dominate the segment with very different architectures: Pano AI uses ground-based AI cameras, OroraTech uses a proprietary thermal-infrared satellite constellation. Both are excellent. Neither covers the prevention or verification layers that come before and after the moment of detection.
+    </p>
+
+    <!-- PANO AI -->
+    <div class="profile cat-detection">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Detection &middot; Ground Cameras + AI</div>
+          <h3>Pano AI</h3>
+          <div class="profile-tagline">The leader in AI-driven ground-based wildfire detection &mdash; 50M acres, 250+ first responder agencies, TIME 100 Most Influential 2025.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$89M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">~$250M</div><div class="l">Reported valuation</div></div>
+          <div class="stat-box"><div class="v">2020</div><div class="l">Founded</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Pano AI, founded in 2020 and based in San Francisco, is the clear leader in ground-based AI wildfire detection. It builds &ldquo;Pano Stations&rdquo; &mdash; pole-mounted camera systems with two ultra-high-definition cameras that rotate 360 degrees every minute, stitching panoramic images that are uploaded to the cloud and scanned by proprietary AI for smoke. Every alert is verified by a 24/7 human intelligence center before being dispatched. The product is sold as an all-in service at approximately $50,000 per camera station per year.
+        </p>
+        <p>
+          The scale is significant. Pano now monitors more than <strong>50 million acres across 16 U.S. states, Canadian provinces and Australia</strong>, serves over 250 first responder agencies, and has nearly 40 paying customers including Pacific Gas &amp; Electric, Portland General Electric, Austin Energy, and Arizona Public Service (APS). In 2025 the system sent alerts for 735 vegetation fires and was the first to detect more than half of them. Pano was named to <em>TIME&rsquo;s</em> 100 Most Influential Companies of 2025 and Fast Company&rsquo;s Most Innovative Companies of 2026.
+        </p>
+        <p>
+          What Pano does extraordinarily well: ground-based detection at scale with credible integration into utility and first-responder workflows. The platform also gives agencies a high-resolution, zoomable view with precise coordinates, letting them mobilize in minutes. A geofencing feature added in 2025 lets agencies see only fires inside their jurisdiction.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Pano AI is a <strong>detection company</strong>, narrow and deep. Its product begins when smoke is visible from a camera tower &mdash; in other words, after a fire has already ignited. ForestSAT&rsquo;s products begin <strong>years before</strong>: predicting where catastrophic conditions are accumulating, planning prevention treatments, verifying spending, and closing the loop on recovery. There is no competitive overlap on the prevention or MVR layers, and the natural relationship is partnership: Pano supplies an early-detection signal that ForestSAT&rsquo;s Response module would consume alongside satellite, weather and terrain feeds. ForestSAT also covers vast areas via satellite that Pano cannot reach with cameras &mdash; remote forest, wilderness, and trans-national fire-prone landscapes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORORATECH -->
+    <div class="profile cat-detection">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Detection &middot; Thermal Satellite Constellation</div>
+          <h3>OroraTech</h3>
+          <div class="profile-tagline">The largest dedicated wildfire satellite constellation in the world &mdash; 14 proprietary thermal LEO sats, 35+ network sats, 50+ customers, 22 countries.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">14 sats</div><div class="l">Proprietary LEO</div></div>
+          <div class="stat-box"><div class="v">407M ha</div><div class="l">Monitored</div></div>
+          <div class="stat-box"><div class="v">2018</div><div class="l">Founded, Munich</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          OroraTech, headquartered in Munich and founded in 2018, has scaled from a satellite startup into the world&rsquo;s largest dedicated wildfire-monitoring constellation. As of late 2025 the company operates 14 proprietary thermal-infrared satellites in low Earth orbit and fuses data from 35+ public and partner satellites (FOREST series, MeteoSat-12, VIIRS, GOES, Terra, Aqua) into its Wildfire Solution platform. OroraTech monitors 407 million hectares &mdash; roughly the size of the European Union &mdash; for over 50 customers and nearly 1,000 users across 22 countries.
+        </p>
+        <p>
+          Customer wins include a &euro;20M ESA-supported contract with the Greek government to build a national wildfire detection system, Larimer County, Colorado as a U.S. early adopter, and Brazil&rsquo;s Rio Caut&aacute;rio protected area, which reached zero fires through community training combined with satellite alerts. OroraTech raised a &euro;25M Series B extension in late 2024 and continues to expand toward an eventual 100-satellite constellation with sub-hour revisit times. The company has a U.S. operation (OroraTech USA), German Space Agency (DLR) backing, and partnerships with Spire Global for satellite hosting and downlink.
+        </p>
+        <p>
+          What OroraTech does extraordinarily well: it owns the most capable space-based wildfire detection asset in the world, and it has built a credible Wildfire Solution platform with detection, fire-spread prediction, and burnt-area assessment integrated.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            OroraTech is a <strong>satellite-data + detection-platform hybrid</strong>. Its center of gravity is upstream &mdash; building, launching and operating thermal satellites &mdash; and downstream visualization of the alerts those satellites produce. ForestSAT has a fundamentally different architecture: <strong>data-source agnostic</strong>, with 130+ GIS layers ingested from public missions (Sentinel, Landsat, MODIS, VIIRS, GOES), commercial providers, drone and aerial sources, and digitized in-situ field data. ForestSAT is not in the satellite-operations business and never will be. More importantly, OroraTech&rsquo;s product does not include prevention planning, MVR of treatment work, or the consequence model (economic loss, biodiversity, biomass, GHG) that ForestSAT delivers. The two companies could partner on detection feeds; they do not compete on the prevention or verification layers where ForestSAT is positioned.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY 3: VEGETATION & UTILITY INFRASTRUCTURE
+     ============================================================ -->
+<section id="vegetation" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">Category 03 &middot; Utility Vegetation &amp; Infrastructure Risk</div>
+    <h2 class="section-title">Companies serving electric utilities &mdash; the deepest-pocketed wildfire customer.</h2>
+    <p class="section-lead">
+      Investor-owned utilities face existential wildfire liability (PG&amp;E, SCE, Hawaiian Electric). Vegetation contact with power lines is the single largest cause of utility-ignited wildfires, and vegetation management is the largest single line item in utility O&amp;M budgets. A category of well-funded SaaS vendors has emerged to serve this customer specifically.
+    </p>
+
+    <!-- OVERSTORY -->
+    <div class="profile cat-vegetation">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Vegetation &middot; Tree-Level AI for Utilities</div>
+          <h3>Overstory</h3>
+          <div class="profile-tagline">Tree-by-tree vegetation intelligence for utilities. Backed by 6 of the top 10 Americas utilities, with PG&amp;E reporting a ~50% drop in vegetation-caused ignitions.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$68M</div><div class="l">Total funding</div></div>
+          <div class="stat-box"><div class="v">50+</div><div class="l">Utility customers</div></div>
+          <div class="stat-box"><div class="v">2018</div><div class="l">Founded, Amsterdam</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Overstory, founded in 2018 and based in Amsterdam with a U.S. headquarters in Boston, raised a $43M Series B in November 2025 led by Blume Equity, with participation from Energy Impact Partners, B Capital, Bentley Systems and others &mdash; bringing total funding to $67.92M. The company applies AI to high-resolution satellite imagery to assess vegetation risk tree-by-tree along utility transmission and distribution corridors, identifying species, height, encroachment, health, mortality and wildfire-relevant fuels.
+        </p>
+        <p>
+          Customer evidence is strong. Overstory works with <strong>six of the top ten utilities in the Americas</strong>, including PG&amp;E, where Andy Abranches, VP of Wildfire Mitigation, reported a roughly 50% drop in vegetation-caused ignitions in 2025 compared to the prior year. The November 2025 launch of Overstory&rsquo;s <strong>Fuel Detection Model</strong> &mdash; a proprietary AI layer focused on the 10-meter zone around utility assets, with resolution claimed to be 10,000&times; higher than publicly available fire-risk maps &mdash; is the company&rsquo;s explicit move from vegetation management into integrated wildfire prevention. CEO Fiona Spruill has signaled global expansion into storms and wildfires beyond the existing utility-vegetation core.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Overstory is the <strong>best-in-class vendor for the 10-meter zone around utility assets</strong>. It is a remarkable product narrowly focused on a single, very valuable customer type. ForestSAT is structurally broader in three ways. First, the <strong>customer surface</strong>: ForestSAT serves counties, states, forest departments, insurers and climate-finance institutions, not only utilities. Second, the <strong>lifecycle scope</strong>: ForestSAT covers prediction, prevention, MVR, response and recovery, where Overstory is concentrated on prevention-via-vegetation-management. Third, the <strong>consequence model</strong>: ForestSAT quantifies economic loss, biodiversity, biomass, CO&#8322;/GHG and the prevention-vs-suppression economic case &mdash; categories that sit outside Overstory&rsquo;s utility-asset scope. Overstory is excellent at what it does. ForestSAT operates in a different and complementary product space, and the two are natural partners on utility deployments where the utility wants both 10-meter asset-zone intelligence and landscape-scale prevention planning with verification.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AIDASH -->
+    <div class="profile cat-vegetation">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Vegetation &middot; Satellite-First Enterprise SaaS</div>
+          <h3>AiDASH</h3>
+          <div class="profile-tagline">The largest installed base in utility vegetation SaaS &mdash; 140+ utilities, satellite-first AI for grid inspection, vegetation, wildfire and storm resilience.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">$58.5M</div><div class="l">Series C</div></div>
+          <div class="stat-box"><div class="v">140+</div><div class="l">Utility customers</div></div>
+          <div class="stat-box"><div class="v">Palo Alto</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          AiDASH, headquartered in Palo Alto and founded by Abhishek Singh, has the largest installed base in utility-focused vegetation SaaS, serving more than 140 utilities. Its &ldquo;SatelliteFirst&trade;&rdquo; platform uses high-resolution satellite imagery, LiDAR and aerial fusion across four product lines: <strong>VegetationAI&trade;</strong>, the Intelligent Vegetation Management System (<strong>IVMS&trade;</strong>), the Climate Risk Intelligence System (<strong>CRIS&trade;</strong>), and the Asset Inspection and Monitoring System (<strong>AIMS&trade;</strong>).
+        </p>
+        <p>
+          AiDASH has been notably aggressive on wildfire positioning. <strong>CRIS 2.0</strong>, launched in February 2025, was accompanied by a public report claiming that the LA wildfire risks were detectable weeks in advance through satellite-driven vegetation stress and ignition analysis. In March 2025 the company launched a Wildfire Mitigation Planning service led by Randy Lyle, a 32-year CAL FIRE veteran and former SDG&amp;E wildfire program lead. In July 2025 AiDASH announced an integration with BurnBot for &ldquo;first AI + robotics wildfire mitigation,&rdquo; and in August 2025 a partnership with Technosylva to combine AiDASH&rsquo;s vegetation intelligence with Technosylva&rsquo;s science-based wildfire modeling. KPMG and Schneider Electric have publicly endorsed AiDASH; the company claims a 90% reduction in wildfire risk with PG&amp;E, alongside other operational gains.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            AiDASH is the <strong>most comprehensive utility-grid SaaS in the segment</strong> and arguably the broadest single-vendor stack for utility vegetation, asset inspection and climate risk. The fundamental difference with ForestSAT is the <strong>customer center of gravity</strong>: AiDASH is built around the utility O&amp;M and grid-resilience use case. ForestSAT is built around the wildfire lifecycle as a category, with utility being one of several customer types. AiDASH&rsquo;s wildfire offering is a vertical of CRIS, layered on top of a vegetation-intelligence platform. ForestSAT&rsquo;s wildfire offering <strong>is the platform</strong> &mdash; with prevention MVR, consequence modeling (economic loss, GHG, biodiversity), and recovery as native first-class products rather than utility-grid extensions. The Technosylva and BurnBot partnerships AiDASH has built suggest the segment is now consolidating around &ldquo;modeling + vegetation + execution&rdquo; bundles. ForestSAT brings all of those into one platform from inception, plus the MVR layer none of these vendors offers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVEEO -->
+    <div class="profile cat-vegetation">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Vegetation &middot; European EO/GIS for Infrastructure</div>
+          <h3>LiveEO</h3>
+          <div class="profile-tagline">European EO SaaS for infrastructure asset monitoring &mdash; pipelines, railways, electric grids. Validates the European market for satellite-based asset risk.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~&euro;25M</div><div class="l">Series B</div></div>
+          <div class="stat-box"><div class="v">Berlin</div><div class="l">HQ</div></div>
+          <div class="stat-box"><div class="v">Multi-asset</div><div class="l">Coverage</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          LiveEO, headquartered in Berlin, raised a &euro;25M Series B and provides satellite-based asset monitoring across pipelines, railways and electric grids. The company uses Earth Observation data to monitor third-party threats, vegetation encroachment, ground movement and asset health for infrastructure operators across Europe and beyond. It is the European analog of AiDASH and Overstory, serving similar customer types with broader asset coverage but less wildfire-specific depth.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            LiveEO is an <strong>infrastructure-asset monitoring platform</strong>, not a wildfire platform. It covers vegetation as one of several threat categories alongside ground subsidence, third-party intrusion and infrastructure aging. ForestSAT is a wildfire-specific platform with the depth that comes from focus &mdash; including the MVR, consequence modeling, and full lifecycle coverage that LiveEO does not offer. The relationship is non-overlapping: a European utility could use LiveEO for pipeline and rail monitoring while running ForestSAT for its wildfire mitigation program.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY 4: CARBON & NATURE MRV
+     ============================================================ -->
+<section id="mrv">
+  <div class="container">
+    <div class="section-eyebrow">Category 04 &middot; Carbon, Forest &amp; Nature MRV</div>
+    <h2 class="section-title">The category most analogous to ForestSAT MVR &mdash; for a different outcome.</h2>
+    <p class="section-lead">
+      This category has emerged because the voluntary carbon market needed independent verification of forest-carbon projects to be credible. The underlying technical machinery &mdash; satellite imagery, AI, ground-truthing, peer-reviewed methodology, third-party trust &mdash; is closely analogous to what ForestSAT MVR does for wildfire prevention spending. The customers and the verified outcome are different.
+    </p>
+
+    <!-- PACHAMA -->
+    <div class="profile cat-mrv">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">MRV &middot; Forest Carbon Marketplace</div>
+          <h3>Pachama</h3>
+          <div class="profile-tagline">The premium benchmark for satellite AI + forest-carbon trust infrastructure. ~$355M reported valuation.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$88M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">~$355M</div><div class="l">Reported valuation</div></div>
+          <div class="stat-box"><div class="v">Y Combinator</div><div class="l">Origin</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Pachama is the standout example of how investors value satellite + AI + verification businesses. Founded out of Y Combinator and now backed by Lower Carbon Capital, Breakthrough Energy Ventures (Bill Gates), Amazon Climate Pledge Fund and others, Pachama uses satellite imagery and machine learning to verify forest carbon projects for the voluntary carbon market. Customers include corporate carbon buyers and project developers; the platform underwrites credit quality with continuous remote-sensing monitoring of biomass, deforestation and project additionality.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Pachama is the <strong>premium analog</strong> of what ForestSAT MVR does for a different outcome. Pachama verifies carbon credits; ForestSAT MVR verifies wildfire prevention spending. The technical stack is closely analogous &mdash; satellite imagery, AI, biomass measurement, peer-reviewed methodology, third-party trust as a product. The strategic implication is that Pachama&rsquo;s ~$355M valuation establishes the asset-class precedent for ForestSAT MVR: satellite-AI verification platforms that provide trust infrastructure for institutional capital flows are valued at premium multiples once adoption is established. In the long term, the two categories are likely to converge: <strong>verified prevention spending</strong> may itself become a class of nature-finance instrument, and ForestSAT and Pachama-style platforms could integrate.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SYLVERA -->
+    <div class="profile cat-mrv">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">MRV &middot; Carbon Credit Ratings</div>
+          <h3>Sylvera</h3>
+          <div class="profile-tagline">Independent ratings infrastructure for carbon credits &mdash; the &ldquo;Moody&rsquo;s of carbon&rdquo;.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$96M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">London</div><div class="l">HQ</div></div>
+          <div class="stat-box"><div class="v">Ratings</div><div class="l">Product</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Sylvera is the leading carbon-credit ratings company, often described as &ldquo;Moody&rsquo;s of carbon.&rdquo; The company applies satellite data, machine learning and forest science to grade the quality of voluntary carbon credits, providing institutional buyers with independent ratings before they purchase. Sylvera has raised approximately $96M from Index Ventures, Insight Partners and others.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Sylvera is a <strong>ratings business</strong> &mdash; it grades projects somebody else creates. ForestSAT MVR is a <strong>verification-of-action business</strong> &mdash; it tracks and proves the work itself. The two architectures are different: Sylvera scores credit quality; ForestSAT verifies that prevention spending was executed and reduced risk. The strategic precedent Sylvera sets is that <strong>independent third-party ratings infrastructure for environmental claims commands premium valuation</strong>, which supports ForestSAT MVR&rsquo;s long-term positioning as a regulator-recognized verification standard.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHLORIS GEOSPATIAL -->
+    <div class="profile cat-mrv">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">MRV &middot; Forest Biomass &amp; Carbon</div>
+          <h3>Chloris Geospatial</h3>
+          <div class="profile-tagline">Satellite-based forest biomass and carbon-stock measurement for the carbon market.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">$8.5M</div><div class="l">Series A</div></div>
+          <div class="stat-box"><div class="v">Biomass</div><div class="l">Specialty</div></div>
+          <div class="stat-box"><div class="v">Boston</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Chloris Geospatial uses satellite imagery and remote sensing to measure forest above-ground biomass and carbon stocks at high resolution. The company serves carbon project developers, ratings agencies and corporate buyers who need transparent biomass measurement to underwrite carbon claims.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Chloris focuses on a <strong>single technical layer</strong> &mdash; biomass and carbon-stock measurement &mdash; that ForestSAT incorporates as one of <strong>six dimensions</strong> in its consequence model (alongside economic loss, flora &amp; fauna, GHG emission scenarios, biodiversity threat, and prevention-vs-suppression economics). Chloris is a partner-grade upstream data provider for biomass; ForestSAT is a downstream wildfire operating system that uses biomass intelligence as one input to a much broader risk and verification framework.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RENOSTER -->
+    <div class="profile cat-mrv">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">MRV &middot; Carbon Project Transparency</div>
+          <h3>Renoster</h3>
+          <div class="profile-tagline">Remote-sensing-led carbon project ratings and transparency for the voluntary carbon market.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">Seed</div><div class="l">Stage</div></div>
+          <div class="stat-box"><div class="v">Ratings</div><div class="l">Specialty</div></div>
+          <div class="stat-box"><div class="v">Forest</div><div class="l">Focus</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Renoster is a seed-stage carbon project ratings firm focused on remote-sensing-led transparency for forest carbon projects, a smaller and more recent entrant in the same broad category as Sylvera and Pachama.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Same architectural difference as Sylvera and Pachama: Renoster rates third-party carbon projects; ForestSAT MVR verifies action against wildfire prevention budgets. Different customer, different outcome, structurally similar technology pattern.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- NATUREMETRICS -->
+    <div class="profile cat-mrv">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">MRV &middot; Biodiversity &amp; eDNA</div>
+          <h3>NatureMetrics</h3>
+          <div class="profile-tagline">Biodiversity intelligence using environmental DNA (eDNA) for nature-positive corporate commitments.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">$25M</div><div class="l">Series B</div></div>
+          <div class="stat-box"><div class="v">eDNA</div><div class="l">Technology</div></div>
+          <div class="stat-box"><div class="v">UK</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          NatureMetrics uses environmental DNA (eDNA) sampling combined with bioinformatics to provide biodiversity measurement for corporate sustainability programs, conservation projects and government nature commitments. It is a different technical approach from satellite-AI MRV but lives in the same investor category &mdash; making nature outcomes measurable and auditable.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            NatureMetrics is the <strong>biological-sampling counterpart</strong> to satellite MRV. ForestSAT&rsquo;s biodiversity threat assessment is satellite-based (overlay of high-risk zones with biodiversity inventories, KBAs and species-range maps); NatureMetrics is field-based eDNA. The two are <strong>complementary instruments</strong>, not competitors. A future integration where ForestSAT consumes NatureMetrics-grade biodiversity field validation as one of its in-situ data layers is plausible and aligned with ForestSAT&rsquo;s plug-and-play data ingest architecture.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CATEGORY 5: ADJACENT EO/GIS SaaS + INSURANCE
+     ============================================================ -->
+<section id="eo-saas" class="alt">
+  <div class="container">
+    <div class="section-eyebrow">Category 05 &middot; Adjacent EO/GIS SaaS &amp; Insurance Analytics</div>
+    <h2 class="section-title">Companies in adjacent investor categories that share architectural patterns with ForestSAT.</h2>
+    <p class="section-lead">
+      These companies are not direct wildfire competitors. They matter because they validate the broader architectural category &mdash; satellite intelligence converted into operational decisions and enterprise software &mdash; into which ForestSAT fits.
+    </p>
+
+    <!-- KAYRROS -->
+    <div class="profile cat-eo">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">EO SaaS &middot; Environmental Intelligence</div>
+          <h3>Kayrros</h3>
+          <div class="profile-tagline">Geospatial environmental intelligence at institutional scale &mdash; oil &amp; gas methane, climate risk, energy markets. Acquisition by Energy Aspects agreed.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~&euro;40M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">Paris</div><div class="l">HQ</div></div>
+          <div class="stat-box"><div class="v">Energy Aspects</div><div class="l">Acquirer</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Kayrros, headquartered in Paris, applies satellite data and machine learning at institutional scale to monitor methane emissions, energy infrastructure, and climate risk for hedge funds, energy companies and governments. The company is being acquired by Energy Aspects, a major energy-research firm &mdash; a strategic outcome that validates EO SaaS as institutional data infrastructure.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Kayrros sells <strong>institutional environmental intelligence to financial markets and energy companies</strong>. ForestSAT sells <strong>operational wildfire decisions and verified prevention outcomes to public agencies, utilities and insurers</strong>. The architectural pattern is the same &mdash; satellite + AI converted into operational decision-grade data &mdash; and Kayrros&rsquo;s strategic acquisition validates that pattern. The customer segment and product use case are different.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SATELLIGENCE -->
+    <div class="profile cat-eo">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">EO SaaS &middot; Supply-Chain Sustainability</div>
+          <h3>Satelligence</h3>
+          <div class="profile-tagline">Satellite ESG and deforestation monitoring for corporate supply chains. EUDR, ESG and sustainability compliance.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">Corporate ESG</div><div class="l">Customer</div></div>
+          <div class="stat-box"><div class="v">EUDR</div><div class="l">Use case</div></div>
+          <div class="stat-box"><div class="v">Utrecht</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Satelligence delivers satellite-based deforestation, carbon and supply-chain monitoring for major corporates and commodity buyers, especially under the EU Deforestation Regulation (EUDR). The product is sustainability and compliance reporting infrastructure for corporates with commodity supply chains exposed to deforestation risk.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Satelligence covers <strong>deforestation and supply-chain risk for corporate ESG buyers</strong>. ForestSAT covers <strong>wildfire risk and prevention verification for public-sector and utility budgets</strong>. Same architectural pattern (satellite + AI + verified outcomes), different customer and different verified outcome.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPACEKNOW -->
+    <div class="profile cat-eo">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">EO SaaS &middot; Generic Satellite Analytics</div>
+          <h3>SpaceKnow</h3>
+          <div class="profile-tagline">Generic satellite analytics &mdash; the valuation floor for un-specialized EO SaaS.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$5M</div><div class="l">Funding</div></div>
+          <div class="stat-box"><div class="v">~$16-24M</div><div class="l">Estimated EV</div></div>
+          <div class="stat-box"><div class="v">Generic</div><div class="l">Positioning</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          SpaceKnow provides generic satellite analytics for economic and industrial monitoring &mdash; counting cars in parking lots, monitoring construction activity, measuring industrial output. It is the textbook example of what happens when an EO SaaS company does not pick a vertical: limited customer traction, modest valuation, and competition from every direction.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            SpaceKnow demonstrates the <strong>cost of horizontal positioning</strong> in EO SaaS. ForestSAT&rsquo;s wildfire-vertical depth, six years of bootstrapped commitment, peer-reviewed validation against megafires in three countries, and full lifecycle architecture create the kind of category-leadership defensibility SpaceKnow has not achieved.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZESTYAI -->
+    <div class="profile cat-insurance">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Insurance Analytics &middot; Property &amp; Wildfire</div>
+          <h3>ZestyAI</h3>
+          <div class="profile-tagline">Property and wildfire risk analytics for the insurance industry.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$46M</div><div class="l">Total funding</div></div>
+          <div class="stat-box"><div class="v">Insurance</div><div class="l">Customer</div></div>
+          <div class="stat-box"><div class="v">Property risk</div><div class="l">Specialty</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          ZestyAI provides AI-driven property and wildfire risk analytics for insurance carriers, helping insurers underwrite property risk including wildfire exposure at the parcel level. The company has raised approximately $46M and serves a carrier-focused customer base with risk-scoring products integrated into underwriting workflows.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            ZestyAI sells <strong>property risk scores to insurance underwriters</strong>. ForestSAT sells <strong>operational wildfire decisions and verified prevention outcomes</strong> to a broader customer base that includes insurers but extends to counties, utilities, forest departments and climate-finance institutions. ZestyAI tells an underwriter what a parcel&rsquo;s wildfire exposure is. ForestSAT tells a fire chief what to do about it &mdash; and proves it worked.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAST REFORESTATION -->
+    <div class="profile cat-restore">
+      <div class="profile-header">
+        <div class="name-block">
+          <div class="profile-cat-label">Adjacent &middot; Post-Fire Reforestation</div>
+          <h3>Mast Reforestation</h3>
+          <div class="profile-tagline">Post-fire reforestation and carbon-removal at scale &mdash; the other end of the wildfire lifecycle.</div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-box"><div class="v">~$65M</div><div class="l">Total funding</div></div>
+          <div class="stat-box"><div class="v">Reforestation</div><div class="l">Specialty</div></div>
+          <div class="stat-box"><div class="v">Seattle</div><div class="l">HQ</div></div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <p>
+          Mast Reforestation operates at the post-fire restoration end of the wildfire lifecycle, providing reforestation and carbon-removal services for landowners, agencies and carbon buyers after a fire. The company combines seed collection, native nursery production and at-scale planting with carbon-credit linkage.
+        </p>
+        <div class="diff-block">
+          <h4>Where ForestSAT is structurally different</h4>
+          <p>
+            Mast is an <strong>execution-and-services partner</strong> at the recovery end of the wildfire lifecycle. ForestSAT&rsquo;s Recovery module would naturally consume Mast&rsquo;s reforestation activity as an input &mdash; verifying which areas have been replanted, tracking regeneration progress over time, and closing the loop on the prevention-fire-recovery cycle. The relationship is integration, not competition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MASTER MATRIX
+     ============================================================ -->
+<section id="matrix">
+  <div class="container">
+    <div class="section-eyebrow">The Master Matrix</div>
+    <h2 class="section-title">Capability coverage across the wildfire SaaS ecosystem.</h2>
+    <p class="section-lead">
+      This matrix maps the eight capabilities that matter most for an integrated wildfire operating system across the leading SaaS/PaaS players in the segment. Pure satellite data primes (Planet Labs, Maxar, ICEYE, Airbus DS) are excluded as upstream data providers.
+    </p>
+    <div class="matrix-hint">&larr; Swipe horizontally to compare across all players &rarr;</div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="cap-col" style="width: 24%">Capability</th>
+            <th class="fs-th">ForestSAT</th>
+            <th>Vibrant Planet</th>
+            <th>Pano AI</th>
+            <th>OroraTech</th>
+            <th>Overstory</th>
+            <th>AiDASH</th>
+            <th>Technosylva</th>
+            <th>Pachama / Sylvera</th>
+            <th>Kayrros / LiveEO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cap-row">Predict — multi-year wildfire risk</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Prevent — fuel treatment planning DSS</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Verify (MVR) — spending verification</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Detect — active fire detection</td>
+            <td class="fs-cell"><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Respond — AI fire-spread modeling</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Recover — post-fire damage + insurance</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Consequence model (econ + GHG + biodiversity)</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="partial">&deg;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+          <tr>
+            <td class="cap-row">Full lifecycle integration (one platform)</td>
+            <td class="fs-cell"><span class="yes">&check;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+            <td><span class="no">&times;</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="matrix-legend">
+      <span><span class="yes">&check;</span> Strong capability</span>
+      <span><span class="partial">&deg;</span> Partial / niche capability</span>
+      <span><span class="no">&times;</span> Not a focus</span>
+    </div>
+    <p style="margin-top: 26px; font-size: 13.5px; color: var(--slate); font-style: italic;">
+      The single row that matters most: <strong>Verify (MVR)</strong>. ForestSAT is the only platform in the wildfire SaaS segment with a primary product dedicated to verifying that prevention spending was executed and that risk was reduced. Pachama/Sylvera achieve a partial mark only because their analogous architecture is applied to carbon credits, not wildfire prevention. The MVR layer is the moat.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONCLUSION
+     ============================================================ -->
+<section class="conclusion">
+  <div class="container">
+    <h2>The category convergence point &mdash; and ForestSAT&rsquo;s structural position.</h2>
+    <p>
+      Every player profiled on this page is an excellent company. Vibrant Planet has built the deepest U.S. forest-resilience planning platform. Pano AI dominates ground-camera detection. OroraTech operates the world&rsquo;s largest wildfire satellite constellation. Overstory has tree-by-tree intelligence for utilities. AiDASH owns the largest utility-vegetation installed base. Technosylva runs a billion daily fire simulations. Pachama and Sylvera built the trust infrastructure for carbon. Each is winning in its segment.
+    </p>
+    <p>
+      What none of them has built is a single platform that <em>covers the full wildfire lifecycle</em> and includes <em>verification of prevention spending</em> as a primary product. The market signals point toward this convergence: Vibrant Planet acquired Pyrologix to add modeling. AiDASH partnered with Technosylva to add modeling and BurnBot to add execution. OroraTech expanded from satellites into a Wildfire Solution platform. Overstory expanded from vegetation into Wildfire Intelligence. The whole segment is reaching for the same shape.
+    </p>
+    <p>
+      ForestSAT was built that shape from inception. Five integrated products. 130+ data layers. Validation against real megafires in California, Portugal and Cyprus where 90% of burned area fell inside ForestSAT-predicted High Risk zones. Six years of bootstrapped, dilution-free founder commitment. TRL 6, ready for commercial deployment. The MVR layer that turns prevention from a budget line item into an auditable, fundable, verifiable outcome.
+    </p>
+    <p>
+      This is not a claim that ForestSAT is &ldquo;better than&rdquo; any of the companies above. It is a claim that ForestSAT is <em>structurally different</em>, and that the integration itself is the moat.
+    </p>
+    <div class="signoff">&mdash; The ForestSAT Difference</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-footer">
+  <div class="container">
+    <h2>Ready to see ForestSAT in action?</h2>
+    <p>If you are a county, state, utility, insurer or government program responsible for wildfire prevention spending &mdash; we should talk. ForestSAT is at TRL 6 and taking on a limited number of pilot deployments for Q2&ndash;Q3 2026.</p>
+    <div class="btn-row">
+      <a href="mailto:ajay@forestsat.space" class="btn btn-primary">Request a Pilot</a>
+      <a href="https://forestsat.space" class="btn btn-secondary">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="tagline">Predict. Prevent. Verify. Respond. Recover.</div>
+    <div>&copy; 2026 ForestSAT &middot; <a href="mailto:ajay@forestsat.space">ajay@forestsat.space</a> &middot; <a href="https://forestsat.space">forestsat.space</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

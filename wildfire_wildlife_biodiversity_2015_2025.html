@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildfires &amp; Wildlife — Biodiversity, Endangered Species &amp; Extinction | ForestSat</title>
+<link rel="icon" href="img/favicon.png" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+    --fire-red: #D93B2B;
+    --fire-orange: #E8711A;
+    --fire-amber: #F5A623;
+    --ash-dark: #1C1A18;
+    --ash-mid: #2E2C29;
+    --ash-light: #3D3B37;
+    --smoke-gray: #8A8680;
+    --smoke-light: #C4C0BA;
+    --paper: #F5F0E8;
+    --paper-warm: #EDE8DF;
+    --white: #FDFCFA;
+    --green-forest: #2A5C3F;
+    --green-light: #4A8B5A;
+    --blue-water: #1E4D7A;
+    --sky: #3A7DBF;
+    --yellow-warning: #F5C842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--ash-dark);
+    color: var(--paper);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+ .fs-brand span.logo{ width: 250px;  }
+ .fs-brand span.logo img{ width: 100% }
+
+ .footer-brand { width: 250px; margin:0 auto;  }
+.footer-brand span.logo img{ width: 100% }
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    padding: 80px 40px 60px;
+    background: linear-gradient(160deg, #0A0908 0%, #1C1208 40%, #2A1005 70%, #1C0A03 100%);
+    overflow: hidden;
+    border-bottom: 1px solid var(--fire-orange);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 400px at 80% 60%, rgba(217,59,43,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 300px at 20% 30%, rgba(245,166,35,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--fire-orange);
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 110px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .hero h1 span {
+    color: var(--fire-red);
+    display: block;
+  }
+  .hero-sub {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(16px, 2vw, 22px);
+    color: var(--smoke-light);
+    margin-top: 20px;
+    max-width: 650px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-left: 3px solid var(--fire-orange);
+    padding-left: 16px;
+  }
+  .hero-stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: var(--fire-amber);
+    line-height: 1;
+  }
+  .hero-stat .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+  }
+
+  /* ─── DAMAGE TAXONOMY ─── */
+  .taxonomy-section {
+    background: var(--ash-mid);
+    padding: 60px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--fire-orange);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 40px;
+  }
+  .taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .tax-card {
+    background: var(--ash-dark);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 3px solid var(--card-color, var(--fire-red));
+    padding: 20px;
+    border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .tax-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .tax-card .tax-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .tax-card .tax-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--card-color, var(--fire-red));
+    margin-bottom: 10px;
+  }
+  .tax-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .tax-card ul li {
+    font-size: 12.5px;
+    color: var(--smoke-light);
+    padding: 3px 0;
+    font-family: 'Lora', serif;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+  .tax-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--card-color, var(--fire-red));
+    font-weight: bold;
+  }
+
+  /* ─── FIRE CARDS ─── */
+  .fires-section {
+    padding: 60px 40px;
+    background: var(--ash-dark);
+  }
+  .fires-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: var(--smoke-light);
+    cursor: pointer;
+    border-radius: 1px;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--fire-red);
+    border-color: var(--fire-red);
+    color: var(--white);
+  }
+
+  .fire-card {
+    background: var(--ash-mid);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 5px solid var(--severity-color, #888);
+    margin-bottom: 20px;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .fire-card:hover {
+    border-left-width: 8px;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  }
+  .fire-card-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    padding: 22px 26px 16px;
+    cursor: pointer;
+    gap: 20px;
+  }
+  .fire-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .fire-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--fire-orange);
+    background: rgba(232,113,26,0.12);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .fire-state-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--smoke-gray);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .severity-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+  .sev-catastrophic { background: rgba(180,0,0,0.2); color: #FF6B6B; border: 1px solid rgba(180,0,0,0.4); }
+  .sev-extreme { background: rgba(217,59,43,0.2); color: #FF8C42; border: 1px solid rgba(217,59,43,0.4); }
+  .sev-major { background: rgba(232,113,26,0.2); color: var(--fire-amber); border: 1px solid rgba(232,113,26,0.4); }
+  .sev-significant { background: rgba(245,200,66,0.15); color: #F5C842; border: 1px solid rgba(245,200,66,0.3); }
+
+  .fire-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .fire-location {
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    color: var(--smoke-gray);
+    font-style: italic;
+  }
+
+  .fire-quick-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 150px;
+  }
+  .qs-item {
+    text-align: right;
+  }
+  .qs-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--fire-amber);
+    line-height: 1;
+  }
+  .qs-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+  }
+
+  .expand-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 26px;
+    background: rgba(255,255,255,0.03);
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--fire-orange);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: background 0.2s;
+  }
+  .expand-btn:hover { background: rgba(232,113,26,0.08); }
+  .expand-btn .arrow { transition: transform 0.3s; display: inline-block; }
+  .expand-btn.open .arrow { transform: rotate(180deg); }
+
+  .fire-details {
+    display: none;
+    padding: 0 26px 26px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    animation: slideDown 0.3s ease;
+  }
+  .fire-details.open { display: block; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .detail-block {
+    background: var(--ash-dark);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 16px;
+    border-radius: 2px;
+  }
+  .detail-block .block-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--block-color, var(--fire-orange));
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .detail-block .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    gap: 10px;
+  }
+  .detail-block .row:last-child { border-bottom: none; }
+  .detail-block .row .key {
+    font-size: 12px;
+    color: var(--smoke-gray);
+    font-family: 'Lora', serif;
+    flex-shrink: 0;
+  }
+  .detail-block .row .val {
+    font-size: 12px;
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: right;
+  }
+  .detail-block .row .val.highlight {
+    color: var(--fire-amber);
+    font-weight: 600;
+  }
+
+  .narrative-block {
+    grid-column: 1 / -1;
+    background: rgba(217,59,43,0.05);
+    border: 1px solid rgba(217,59,43,0.15);
+    padding: 16px 20px;
+    border-radius: 2px;
+  }
+  .narrative-block p {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--smoke-light);
+    font-style: italic;
+  }
+
+  .sources-block {
+    grid-column: 1 / -1;
+    padding: 12px 0 0;
+  }
+  .sources-block .src-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+    margin-bottom: 6px;
+  }
+  .sources-block .src-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .src-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    padding: 3px 8px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: var(--smoke-gray);
+  }
+
+  /* ─── BROAD COST SECTION ─── */
+  .cost-overview {
+    background: linear-gradient(135deg, #0F0D0B 0%, #1A1208 50%, #0F0D0B 100%);
+    padding: 80px 40px;
+    border-top: 1px solid rgba(232,113,26,0.3);
+    border-bottom: 1px solid rgba(232,113,26,0.3);
+  }
+  .cost-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+  }
+  @media (max-width: 768px) { .cost-overview-grid { grid-template-columns: 1fr; } }
+  .cost-category {
+    border-left: 2px solid var(--fire-orange);
+    padding-left: 24px;
+  }
+  .cost-category h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--fire-amber);
+    margin-bottom: 16px;
+  }
+  .cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .cost-item .ci-label { color: var(--smoke-light); }
+  .cost-item .ci-val { font-family: 'IBM Plex Mono', monospace; color: var(--fire-amber); font-weight: 600; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0A0908;
+    padding: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--smoke-gray);
+    line-height: 1.8;
+  }
+
+  /* ─── SCROLLBAR ─── */
+
+  /* ─── FORESTSAT NAV ─── */
+  .fs-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #0A0908;
+    border-bottom: 1px solid rgba(232,113,26,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 56px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+  }
+  .fs-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .fs-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #27AE60 0%, #2E7D32 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .fs-logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  }
+  .fs-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .fs-brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #27AE60;
+    line-height: 1;
+  }
+  .fs-brand-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+    line-height: 1;
+  }
+  .fs-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+  .fs-nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--smoke-light);
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 2px;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .fs-nav-links a:hover {
+    background: rgba(232,113,26,0.12);
+    color: var(--fire-orange);
+  }
+  .fs-nav-links a.active {
+    background: rgba(39,174,96,0.12);
+    color: #6FCF97;
+  }
+  .fs-nav-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.08);
+    margin: 0 4px;
+    flex-shrink: 0;
+  }
+
+  .fs-home-btn {
+    background: rgba(217,59,43,0.12) !important;
+    color: var(--fire-orange) !important;
+    border: 1px solid rgba(217,59,43,0.35) !important;
+    font-weight: 600 !important;
+  }
+  .fs-home-btn:hover {
+    background: rgba(217,59,43,0.22) !important;
+    color: var(--white) !important;
+  }
+
+  .fs-nav-cta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #27AE60 !important;
+    border: 1px solid rgba(39,174,96,0.4) !important;
+    padding: 6px 12px !important;
+    border-radius: 2px !important;
+  }
+  .fs-nav-cta:hover {
+    background: rgba(39,174,96,0.15) !important;
+    color: #6FCF97 !important;
+  }
+  .fs-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+  .fs-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--smoke-light);
+    border-radius: 1px;
+    transition: all 0.2s;
+  }
+  .fs-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #0F0D0B;
+    border-bottom: 1px solid rgba(232,113,26,0.3);
+    z-index: 9998;
+    padding: 16px 24px 20px;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .fs-mobile-menu.open { display: flex; }
+  .fs-mobile-menu a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--smoke-light);
+    text-decoration: none;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.15s;
+  }
+  .fs-mobile-menu a:hover { color: var(--fire-orange); }
+  .fs-mobile-section {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+    padding: 12px 8px 4px;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .fs-nav-links { display: none; }
+    .fs-hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    .fs-topbar { padding: 0 16px; }
+  }
+  /* ─── SECTION QUICK-JUMP BAR ─── */
+  .section-jump-bar {
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 10px 32px;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .section-jump-bar::-webkit-scrollbar { display: none; }
+  .jump-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .jump-pill:hover {
+    color: var(--fire-orange);
+    border-color: rgba(232,113,26,0.4);
+    background: rgba(232,113,26,0.06);
+  }
+  .jump-pill.green:hover {
+    color: #6FCF97;
+    border-color: rgba(39,174,96,0.4);
+    background: rgba(39,174,96,0.06);
+  }
+  /* ─── BACK TO TOP ─── */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 8888;
+    width: 44px;
+    height: 44px;
+    background: var(--fire-orange);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(232,113,26,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(10px);
+    text-decoration: none;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .back-to-top:hover {
+    background: #D93B2B;
+    transform: translateY(-2px);
+  }
+  /* ─── TAX-CARD LINK BADGE ─── */
+  .tax-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .tax-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--smoke-gray);
+    opacity: 0.7;
+  }
+  /* ─── FORESTSAT HERO BRAND BADGE ─── */
+  .fs-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(39,174,96,0.1);
+    border: 1px solid rgba(39,174,96,0.3);
+    padding: 5px 12px 5px 8px;
+    border-radius: 3px;
+    margin-bottom: 22px;
+    text-decoration: none;
+  }
+  .fs-hero-badge .badge-logo {
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #27AE60, #1A6B3C);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .fs-hero-badge .badge-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6FCF97;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--ash-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--ash-light); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--fire-orange); }
+
+
+  .tax-read-link {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--card-color, #D93B2B);
+    text-decoration: none; padding: 7px 12px;
+    border: 1px solid var(--card-color, #D93B2B);
+    border-radius: 2px; transition: all 0.2s;
+  }
+  .tax-read-link:hover { background: var(--card-color, #D93B2B); color: #fff; }
+
+  /* ─── NATIONAL PARKS SECTION ─── */
+  .parks-section {
+    padding: 60px 40px;
+    background: linear-gradient(160deg, #0A1A0D 0%, #0D2010 50%, #0A1A0D 100%);
+    border-top: 1px solid rgba(74,139,90,0.4);
+    border-bottom: 1px solid rgba(74,139,90,0.4);
+  }
+  .parks-section .section-title { color: var(--white); }
+  .parks-section .section-label { color: #6FCF97; }
+  .parks-intro {
+    font-size: 14px;
+    color: var(--smoke-light);
+    line-height: 1.9;
+    max-width: 800px;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+  .park-card {
+    background: rgba(10,26,13,0.8);
+    border: 1px solid rgba(74,139,90,0.2);
+    border-left: 5px solid var(--park-color, #4A8B5A);
+    margin-bottom: 16px;
+    border-radius: 2px;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .park-card:hover { box-shadow: 0 4px 30px rgba(0,80,20,0.4); border-left-width: 8px; }
+  .park-card-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    padding: 18px 22px 14px;
+    cursor: pointer;
+    gap: 16px;
+  }
+  .park-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(17px, 2vw, 24px);
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .park-location {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    color: var(--smoke-gray);
+    font-style: italic;
+  }
+  .park-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+  .park-type-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    background: rgba(74,139,90,0.2);
+    color: #6FCF97;
+    border: 1px solid rgba(74,139,90,0.35);
+  }
+  .park-fire-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    background: rgba(217,59,43,0.15);
+    color: #FF8C42;
+    border: 1px solid rgba(217,59,43,0.3);
+    border-radius: 2px;
+  }
+  .park-quick-stats { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; min-width: 140px; }
+  .park-details { display: none; padding: 0 22px 22px; border-top: 1px solid rgba(74,139,90,0.15); animation: slideDown 0.3s ease; }
+  .park-details.open { display: block; }
+  .park-detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 14px; margin-top: 16px; }
+  .park-stat-block {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(74,139,90,0.15);
+    padding: 14px;
+    border-radius: 2px;
+  }
+  .park-stat-block .block-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6FCF97;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(74,139,90,0.15);
+  }
+  .park-stat-block .row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.03); gap: 10px;
+  }
+  .park-stat-block .row:last-child { border-bottom: none; }
+  .park-stat-block .row .key { font-size: 12px; color: var(--smoke-gray); font-family: 'Lora', serif; flex-shrink: 0; }
+  .park-stat-block .row .val { font-size: 12px; color: var(--paper); font-family: 'IBM Plex Mono', monospace; text-align: right; }
+  .park-stat-block .row .val.highlight { color: #6FCF97; font-weight: 600; }
+  .park-stat-block .row .val.fire-val { color: var(--fire-amber); font-weight: 600; }
+  .parks-expand-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 22px; background: rgba(74,139,90,0.05);
+    border: none; border-top: 1px solid rgba(74,139,90,0.1);
+    color: #6FCF97; font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; width: 100%; text-align: left; transition: background 0.2s;
+  }
+  .parks-expand-btn:hover { background: rgba(74,139,90,0.12); }
+  .parks-expand-btn .arrow { transition: transform 0.3s; display: inline-block; }
+  .parks-expand-btn.open .arrow { transform: rotate(180deg); }
+  .park-narrative {
+    grid-column: 1 / -1;
+    background: rgba(74,139,90,0.05);
+    border: 1px solid rgba(74,139,90,0.15);
+    padding: 14px 18px; border-radius: 2px; margin-bottom: 4px;
+  }
+  .park-narrative p { font-size: 13px; line-height: 1.85; color: var(--smoke-light); font-style: italic; }
+  .fire-events-list { grid-column: 1/-1; margin-top: 4px; }
+  .fire-event-item {
+    display: grid; grid-template-columns: 60px 1fr auto;
+    gap: 14px; align-items: baseline;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 12.5px;
+  }
+  .fire-event-item:last-child { border-bottom: none; }
+  .fei-year { font-family: 'IBM Plex Mono', monospace; color: var(--fire-orange); font-weight: 600; font-size: 11px; }
+  .fei-name { color: var(--paper); font-family: 'DM Serif Display', serif; font-size: 14px; }
+  .fei-detail { color: var(--smoke-gray); font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-align: right; }
+  .parks-section .expand-btn { background: rgba(74,139,90,0.05); border-top: 1px solid rgba(74,139,90,0.1); color: #6FCF97; }
+  .parks-section .expand-btn:hover { background: rgba(74,139,90,0.12); }
+
+  @media (max-width: 600px) {
+    .hero, .taxonomy-section, .fires-section, .cost-overview, .parks-section { padding: 40px 20px; }
+    .fire-card-header, .park-card-header { grid-template-columns: 1fr; }
+    .fire-quick-stats, .park-quick-stats { align-items: flex-start; flex-direction: row; gap: 20px; }
+    .hero-stats { gap: 20px; }
+  }
+
+  /* === ARTICLE OVERLAY === */
+  .article-overlay {
+    display: none; position: fixed; inset: 0; z-index: 99999;
+    background: var(--ash-dark); overflow-y: auto;
+    animation: overlayIn 0.22s ease;
+  }
+  .article-overlay.open { display: block; }
+  @keyframes overlayIn {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .ov-topbar {
+    position: sticky; top:0; z-index:100000;
+    background:#0A0908; border-bottom:1px solid rgba(232,113,26,0.4);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 24px; height:52px; gap:12px;
+  }
+  .ov-brand { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+  .ov-logo {
+    width:26px; height:26px;
+    background:linear-gradient(135deg,#27AE60,#1A6B3C);
+    border-radius:5px; display:flex; align-items:center;
+    justify-content:center; font-size:13px;
+  }
+  .ov-brand-name {
+    font-family:'Bebas Neue',sans-serif; font-size:15px;
+    letter-spacing:2px; color:#27AE60; line-height:1;
+  }
+  .ov-title {
+    flex:1; font-family:'IBM Plex Mono',monospace;
+    font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--smoke-light); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .ov-btns { display:flex; gap:5px; flex-shrink:0; }
+  .ov-btn {
+    font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:1.5px;
+    text-transform:uppercase; padding:6px 10px;
+    border:1px solid rgba(255,255,255,0.12); background:transparent;
+    color:var(--smoke-light); cursor:pointer; border-radius:2px; transition:all 0.15s;
+  }
+  .ov-btn:hover { border-color:var(--fire-orange); color:var(--fire-orange); }
+  .ov-btn.home { border-color:rgba(217,59,43,0.4); background:rgba(217,59,43,0.1); color:var(--fire-orange); }
+  .ov-btn.home:hover { background:rgba(217,59,43,0.2); color:var(--white); }
+  .ov-body { max-width:860px; margin:0 auto; padding:50px 40px 100px; }
+  .ov-hero { padding-bottom:28px; margin-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.07); }
+  .ov-hero h1 {
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(34px,6vw,70px);
+    line-height:0.92; color:var(--white); letter-spacing:1px; margin-bottom:14px;
+  }
+  .ov-hero p {
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(14px,1.8vw,18px); color:var(--smoke-light); line-height:1.65; max-width:700px;
+  }
+  /* article body inside overlay */
+  .ov-body .article-body h2 {
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3.5vw,36px);
+    color:var(--fire-amber); letter-spacing:1px; margin:50px 0 14px;
+    padding-bottom:10px; border-bottom:1px solid rgba(245,166,35,0.22);
+  }
+  .ov-body .article-body h3 {
+    font-family:'DM Serif Display',serif; font-size:clamp(16px,2.5vw,22px);
+    color:var(--white); margin:34px 0 10px;
+  }
+  .ov-body .article-body p {
+    font-size:15px; color:var(--smoke-light); margin-bottom:20px; line-height:1.9;
+  }
+  .ov-body .article-body strong { color:var(--paper); font-weight:600; }
+  .ov-body .article-body em { color:#A8D5B5; font-style:italic; }
+  .ov-body .callout {
+    background:rgba(217,59,43,0.07); border-left:4px solid var(--fire-red);
+    padding:16px 20px; margin:26px 0; border-radius:0 3px 3px 0;
+  }
+  .ov-body .callout p { margin:0; font-style:italic; font-size:14px; color:var(--smoke-light); }
+  .ov-body .callout .stat {
+    font-family:'Bebas Neue',sans-serif; font-size:30px;
+    color:var(--fire-amber); display:block; margin-bottom:4px;
+  }
+  .ov-body .data-table { width:100%; border-collapse:collapse; margin:26px 0; font-size:13px; }
+  .ov-body .data-table th {
+    background:rgba(232,113,26,0.13); font-family:'IBM Plex Mono',monospace;
+    font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--fire-orange); padding:9px 12px; text-align:left;
+    border-bottom:1px solid rgba(232,113,26,0.28);
+  }
+  .ov-body .data-table td {
+    padding:9px 12px; border-bottom:1px solid rgba(255,255,255,0.05);
+    color:var(--smoke-light); vertical-align:top;
+  }
+  .ov-body .data-table tr:hover td { background:rgba(255,255,255,0.03); }
+  .ov-body .data-table td.fire-name { color:var(--paper); font-family:'DM Serif Display',serif; }
+  .ov-body .data-table td.highlight { color:var(--fire-amber); font-family:'IBM Plex Mono',monospace; font-weight:600; }
+  .ov-body .data-table td.species-col { color:var(--paper); font-family:'DM Serif Display',serif; }
+  .ov-body .data-table td.warn { color:var(--fire-amber); font-family:'IBM Plex Mono',monospace; }
+  .ov-body .footnote-ref { font-size:11px; color:var(--fire-orange); vertical-align:super; font-family:'IBM Plex Mono',monospace; }
+  .ov-body .bibliography { margin-top:60px; padding-top:38px; border-top:2px solid rgba(255,255,255,0.08); }
+  .ov-body .bibliography h2 {
+    font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--smoke-light);
+    letter-spacing:1px; margin-bottom:22px; border:none; padding:0; margin-top:0;
+  }
+  .ov-body .bib-entry {
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--smoke-gray);
+    padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.04);
+    line-height:1.7; display:grid; grid-template-columns:26px 1fr; gap:6px;
+  }
+  .ov-body .bib-num { color:var(--fire-orange); font-weight:600; }
+  .ov-body .bib-entry a { color:var(--smoke-light); font-size:10.5px; }
+  /* Biodiversity species cards */
+  .ov-body .species-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; margin:26px 0; }
+  .ov-body .species-card { background:rgba(9,26,13,0.7); border:1px solid rgba(39,174,96,0.18); border-top:3px solid var(--sp-color,#27AE60); padding:16px; border-radius:2px; }
+  .ov-body .sp-icon { font-size:22px; margin-bottom:8px; }
+  .ov-body .sp-status { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:3px 9px; border-radius:10px; font-weight:600; display:inline-block; margin-bottom:10px; }
+  .ov-body .sp-endangered { background:rgba(180,0,0,0.2); color:#FF6B6B; border:1px solid rgba(180,0,0,0.4); }
+  .ov-body .sp-threatened { background:rgba(232,113,26,0.2); color:#F5A623; border:1px solid rgba(232,113,26,0.4); }
+  .ov-body .sp-concern { background:rgba(39,174,96,0.2); color:#6FCF97; border:1px solid rgba(39,174,96,0.35); }
+  .ov-body .sp-name { font-family:'DM Serif Display',serif; font-size:16px; color:var(--white); margin-bottom:4px; }
+  .ov-body .sp-latin { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--smoke-gray); font-style:italic; margin-bottom:8px; }
+  .ov-body .sp-body { font-size:12.5px; color:var(--smoke-light); line-height:1.6; }
+  .ov-body .sp-fire-tag { margin-top:8px; font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--fire-orange); background:rgba(232,113,26,0.1); padding:3px 7px; border-radius:2px; display:inline-block; }
+  .ov-body .flora-panel { background:rgba(9,26,13,0.5); border:1px solid rgba(39,174,96,0.15); padding:20px; margin:24px 0; border-radius:2px; }
+  .ov-body .flora-panel h3 { color:#6FCF97; margin-top:0; margin-bottom:10px; font-size:18px; font-family:'DM Serif Display',serif; }
+  .ov-body .flora-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+  .ov-body .flora-item { font-size:12.5px; color:var(--smoke-light); padding:6px 10px; background:rgba(0,0,0,0.25); border-left:2px solid rgba(39,174,96,0.3); line-height:1.5; }
+  .ov-body .flora-item strong { color:#A8D5B5; display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:1px; }
+  /* Biodiversity color overrides */
+  .ov-biodiversity .ov-body .article-body h2 { color:#6FCF97; border-bottom-color:rgba(39,174,96,0.22); }
+  .ov-biodiversity .ov-body .callout { border-left-color:#27AE60; background:rgba(39,174,96,0.07); }
+  .ov-biodiversity .ov-body .callout .stat { color:#6FCF97; }
+  /* Bottom tab strip */
+  .ov-tabstrip {
+    position:sticky; bottom:0; background:#0A0908;
+    border-top:1px solid rgba(255,255,255,0.07);
+    padding:8px 16px; display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
+  }
+  .ov-tabstrip::-webkit-scrollbar { display:none; }
+  .ov-tab {
+    font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--smoke-gray); padding:5px 10px;
+    border:1px solid rgba(255,255,255,0.07); border-radius:10px;
+    cursor:pointer; white-space:nowrap; flex-shrink:0; background:transparent; transition:all 0.15s;
+  }
+  .ov-tab:hover { color:var(--fire-orange); border-color:rgba(232,113,26,0.4); }
+  .ov-tab.cur { color:var(--white); border-color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); }
+  @media(max-width:600px) {
+    .ov-body { padding:24px 16px 80px; }
+    .ov-topbar { padding:0 12px; }
+    .ov-brand-name { display:none; }
+    .ov-title { display:none; }
+  }
+
+
+  /* ═══ EDIT MODE ═══ */
+  body.edit-mode [contenteditable] {
+    outline: 2px dashed rgba(245,166,35,0.6);
+    outline-offset: 3px;
+    cursor: text;
+    border-radius: 2px;
+    transition: outline 0.15s, background 0.15s;
+    min-width: 20px;
+    min-height: 1em;
+    display: inline-block;
+  }
+  body.edit-mode [contenteditable]:hover {
+    outline-color: var(--fire-orange);
+    background: rgba(245,166,35,0.06);
+  }
+  body.edit-mode [contenteditable]:focus {
+    outline: 2px solid var(--fire-amber);
+    background: rgba(245,166,35,0.1);
+    border-radius: 2px;
+  }
+  /* Floating edit toolbar */
+  #edit-toolbar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 999990;
+    background: #0F0D0B;
+    border-top: 2px solid var(--fire-orange);
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 28px;
+    gap: 16px;
+    flex-wrap: wrap;
+    box-shadow: 0 -4px 30px rgba(0,0,0,0.7);
+  }
+  body.edit-mode #edit-toolbar { display: flex; }
+  .et-left { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .et-badge {
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--fire-amber);
+    background:rgba(245,166,35,0.12); border:1px solid rgba(245,166,35,0.3);
+    padding:5px 12px; border-radius:2px; display:flex; align-items:center; gap:6px;
+  }
+  .et-badge .dot {
+    width:7px; height:7px; border-radius:50%;
+    background:var(--fire-amber); animation: pulse 1.5s ease infinite;
+  }
+  @keyframes pulse {
+    0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.8);}
+  }
+  .et-hint {
+    font-family:'Lora',serif; font-size:12px; color:var(--smoke-gray); font-style:italic;
+  }
+  .et-btn {
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:2px;
+    text-transform:uppercase; padding:8px 16px; border-radius:2px; cursor:pointer;
+    transition:all 0.15s; border:none;
+  }
+  .et-btn.save {
+    background:var(--fire-orange); color:var(--white);
+  }
+  .et-btn.save:hover { background:#D93B2B; }
+  .et-btn.export {
+    background:rgba(39,174,96,0.15); color:#6FCF97;
+    border:1px solid rgba(39,174,96,0.35);
+  }
+  .et-btn.export:hover { background:rgba(39,174,96,0.25); }
+  .et-btn.reset {
+    background:rgba(255,255,255,0.05); color:var(--smoke-gray);
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .et-btn.reset:hover { color:var(--white); border-color:rgba(255,255,255,0.3); }
+  .et-btn.discard {
+    background:transparent; color:var(--smoke-gray);
+    border:1px solid rgba(255,255,255,0.1);
+  }
+  .et-btn.discard:hover { color:#FF6B6B; border-color:rgba(255,107,107,0.4); }
+  .et-saved-msg {
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1.5px;
+    text-transform:uppercase; color:#6FCF97;
+    opacity:0; transition:opacity 0.4s; pointer-events:none;
+  }
+  /* Edit mode toggle button in nav */
+  .edit-toggle-btn {
+    font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px;
+    text-transform:uppercase; padding:6px 12px; border-radius:2px;
+    cursor:pointer; transition:all 0.2s; border:1px solid rgba(245,166,35,0.35);
+    background:rgba(245,166,35,0.08); color:var(--fire-amber);
+  }
+  .edit-toggle-btn:hover { background:rgba(245,166,35,0.18); }
+  body.edit-mode .edit-toggle-btn {
+    background:var(--fire-orange); color:var(--white);
+    border-color:var(--fire-orange);
+  }
+  /* CMS advisory overlay */
+  #cms-overlay {
+    display:none; position:fixed; inset:0; z-index:999999;
+    background:var(--ash-dark); overflow-y:auto;
+    animation: overlayIn 0.22s ease;
+  }
+  #cms-overlay.open { display:block; }
+  .cms-topbar {
+    position:sticky; top:0; z-index:1000000;
+    background:#0A0908; border-bottom:1px solid rgba(39,174,96,0.35);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 28px; height:52px;
+  }
+  .cms-topbar-brand {
+    font-family:'Bebas Neue',sans-serif; font-size:22px;
+    letter-spacing:2px; color:#27AE60;
+  }
+  .cms-close-btn {
+    font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--smoke-light); padding:7px 14px;
+    border:1px solid rgba(255,255,255,0.15); background:transparent;
+    border-radius:2px; cursor:pointer; transition:all 0.15s;
+  }
+  .cms-close-btn:hover { border-color:var(--fire-orange); color:var(--fire-orange); }
+  .cms-body { max-width:900px; margin:0 auto; padding:60px 40px 80px; }
+  .cms-body h1 {
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,6vw,72px);
+    line-height:0.93; color:var(--white); letter-spacing:1px; margin-bottom:20px;
+  }
+  .cms-body h1 span { color:#27AE60; display:block; }
+  .cms-body .lead {
+    font-family:'DM Serif Display',serif; font-style:italic;
+    font-size:clamp(15px,2vw,19px); color:var(--smoke-light);
+    line-height:1.7; max-width:700px; margin-bottom:50px;
+    border-bottom:1px solid rgba(255,255,255,0.07); padding-bottom:30px;
+  }
+  .cms-body h2 {
+    font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,34px);
+    color:var(--fire-amber); letter-spacing:1px;
+    margin:50px 0 16px; padding-bottom:10px;
+    border-bottom:1px solid rgba(245,166,35,0.2);
+  }
+  .cms-body h3 {
+    font-family:'DM Serif Display',serif; font-size:20px;
+    color:var(--white); margin:28px 0 10px;
+  }
+  .cms-body p {
+    font-size:15px; color:var(--smoke-light); line-height:1.9; margin-bottom:18px;
+  }
+  .cms-body strong { color:var(--paper); }
+  /* CMS option cards */
+  .cms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin:24px 0; }
+  .cms-card {
+    background:var(--ash-mid); border:1px solid rgba(255,255,255,0.07);
+    border-top:3px solid var(--cc,#888); padding:20px; border-radius:2px;
+  }
+  .cms-card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .cms-card-name { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--white); letter-spacing:1px; }
+  .cms-tag {
+    font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:1.5px;
+    text-transform:uppercase; padding:3px 8px; border-radius:10px; font-weight:600;
+  }
+  .tag-rec { background:rgba(39,174,96,0.2); color:#6FCF97; border:1px solid rgba(39,174,96,0.35); }
+  .tag-dev { background:rgba(232,113,26,0.2); color:var(--fire-amber); border:1px solid rgba(232,113,26,0.35); }
+  .tag-ent { background:rgba(155,107,181,0.2); color:#C8A4E8; border:1px solid rgba(155,107,181,0.35); }
+  .tag-free { background:rgba(42,92,63,0.3); color:#6FCF97; border:1px solid rgba(42,92,63,0.5); }
+  .cms-card p { font-size:13px; color:var(--smoke-light); line-height:1.7; margin:0 0 12px; }
+  .cms-card-meta { display:flex; flex-direction:column; gap:5px; margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,0.06); }
+  .cms-meta-row { display:flex; justify-content:space-between; font-size:11.5px; gap:8px; }
+  .cms-meta-row .k { font-family:'IBM Plex Mono',monospace; color:var(--smoke-gray); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+  .cms-meta-row .v { color:var(--paper); text-align:right; font-size:11px; }
+  /* Recommendation banner */
+  .rec-banner {
+    background:linear-gradient(135deg,rgba(39,174,96,0.12) 0%,rgba(42,92,63,0.08) 100%);
+    border:1px solid rgba(39,174,96,0.3); border-left:4px solid #27AE60;
+    padding:20px 24px; border-radius:0 3px 3px 0; margin:28px 0;
+  }
+  .rec-banner h3 { color:#6FCF97; margin:0 0 10px; font-size:18px; font-family:'DM Serif Display',serif; }
+  .rec-banner p { font-size:14px; margin:0; }
+  /* Option A/B/C inline edit section */
+  .option-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:20px 0; }
+  @media(max-width:700px){ .option-grid{grid-template-columns:1fr;} .cms-grid{grid-template-columns:1fr;} }
+  .option-card {
+    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    border-top:3px solid var(--oc,#888); padding:16px; border-radius:2px;
+  }
+  .option-card .opt-num {
+    font-family:'Bebas Neue',sans-serif; font-size:38px; color:var(--oc,#888);
+    line-height:1; margin-bottom:8px;
+  }
+  .option-card h3 { font-size:16px; margin:0 0 8px; }
+  .option-card p { font-size:12.5px; margin:0; line-height:1.7; }
+  @media(max-width:600px){ .cms-body{padding:30px 20px 60px;} }
+
+
+  /* ═══ DROPDOWN MENU ═══ */
+  .fs-nav-dropdown {
+    position: relative;
+  }
+  .fs-nav-dropdown > button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--smoke-light); padding: 6px 10px;
+    background: transparent; border: none; cursor: pointer;
+    border-radius: 2px; transition: all 0.15s;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .fs-nav-dropdown > button:hover { color: var(--fire-orange); background: rgba(232,113,26,0.08); }
+  .fs-nav-dropdown > button::after { content: '▾'; font-size: 10px; opacity: 0.6; }
+  .dropdown-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 260px;
+    background: #0F0D0B;
+    border: 1px solid rgba(232,113,26,0.3);
+    border-top: 2px solid var(--fire-orange);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    z-index: 99998;
+    padding: 8px 0;
+  }
+  .dropdown-panel.right { left: auto; right: 0; }
+  .fs-nav-dropdown:hover .dropdown-panel,
+  .fs-nav-dropdown:focus-within .dropdown-panel { display: block; }
+  .dp-section {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--smoke-gray); padding: 10px 16px 5px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 4px;
+  }
+  .dp-section:first-child { border-top: none; margin-top: 0; }
+  .dp-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 16px; font-family: 'Lora', serif;
+    font-size: 13px; color: var(--smoke-light);
+    text-decoration: none; cursor: pointer;
+    background: transparent; border: none; width: 100%;
+    text-align: left; transition: all 0.12s;
+  }
+  .dp-item:hover { background: rgba(232,113,26,0.08); color: var(--paper); }
+  .dp-item .dp-icon { font-size: 15px; flex-shrink: 0; width: 20px; text-align: center; }
+  .dp-item .dp-text { flex: 1; line-height: 1.3; }
+  .dp-item .dp-arrow { font-size: 10px; color: var(--fire-orange); opacity: 0; transition: opacity 0.12s; }
+  .dp-item:hover .dp-arrow { opacity: 1; }
+  .dp-divider { height: 1px; background: rgba(255,255,255,0.05); margin: 4px 0; }
+  /* Mobile full-screen menu */
+  .fs-mobile-menu { padding-bottom: 30px; }
+  .fs-mobile-menu .m-section {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--smoke-gray); padding: 14px 20px 5px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .fs-mobile-menu .m-section:first-child { border-top: none; padding-top: 8px; }
+  .fs-mobile-menu .m-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 20px; font-family: 'Lora', serif;
+    font-size: 14px; color: var(--smoke-light);
+    text-decoration: none; cursor: pointer;
+    background: transparent; border: none; width: 100%;
+    text-align: left; transition: color 0.12s;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .fs-mobile-menu .m-link:hover { color: var(--fire-orange); }
+  .fs-mobile-menu .m-link .m-icon { font-size: 16px; width: 22px; flex-shrink: 0; }
+/* Wildlife site — dark green forest palette */
+  :root {
+    --bio-green:    #27AE60;
+    --bio-teal:     #16A085;
+    --bio-gold:     #F39C12;
+    --bio-red:      #C0392B;
+    --bio-purple:   #8E44AD;
+    --extinct-red:  #E74C3C;
+    --critical-red: #C0392B;
+    --endangered:   #E67E22;
+    --vulnerable:   #F1C40F;
+    --nearthreat:   #2ECC71;
+  }
+
+  /* SPECIES CARD GRID */
+  .species-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; margin:28px 0; }
+
+  .species-card {
+    background:rgba(0,0,0,0.3);
+    border:1px solid rgba(255,255,255,0.07);
+    border-top:4px solid var(--sc-color, #27AE60);
+    border-radius:4px; overflow:hidden;
+    transition:transform 0.2s, box-shadow 0.2s;
+    position:relative;
+  }
+  .species-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.6); }
+
+  .species-image-wrap {
+    width:100%; aspect-ratio:4/3;
+    overflow:hidden; position:relative;
+    background:var(--sc-bg, #0A1A0A);
+  }
+  .species-image-wrap img {
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.4s ease;
+    display:block;
+  }
+  .species-card:hover .species-image-wrap img { transform:scale(1.05); }
+  .species-image-wrap .img-credit {
+    position:absolute; bottom:0; right:0;
+    font-family:'IBM Plex Mono',monospace; font-size:8px;
+    color:rgba(255,255,255,0.5); padding:3px 6px;
+    background:rgba(0,0,0,0.5);
+  }
+
+  .status-badge {
+    position:absolute; top:10px; left:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:9px;
+    letter-spacing:1.5px; text-transform:uppercase;
+    padding:4px 8px; border-radius:2px; font-weight:700;
+    z-index:2;
+  }
+  .status-EX  { background:#7B0000; color:#FFB3B3; border:1px solid rgba(235,59,59,0.5); }
+  .status-CR  { background:rgba(192,57,43,0.25); color:#FF8080; border:1px solid rgba(192,57,43,0.5); }
+  .status-EN  { background:rgba(230,126,34,0.25); color:#FFAA55; border:1px solid rgba(230,126,34,0.5); }
+  .status-VU  { background:rgba(241,196,15,0.2); color:#FFE066; border:1px solid rgba(241,196,15,0.4); }
+  .status-NT  { background:rgba(46,204,113,0.15); color:#6FFFA0; border:1px solid rgba(46,204,113,0.3); }
+  .status-LC  { background:rgba(39,174,96,0.1); color:#6FCF97; border:1px solid rgba(39,174,96,0.2); }
+
+  .species-body { padding:16px; }
+  .species-common { font-family:'DM Serif Display',serif; font-size:18px; color:var(--white); margin-bottom:2px; line-height:1.2; }
+  .species-latin  { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--smoke-gray); letter-spacing:1px; font-style:italic; margin-bottom:10px; }
+  .species-region { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--sc-color, #27AE60); margin-bottom:10px; }
+  .species-impact { font-size:13px; color:var(--smoke-light); line-height:1.7; margin-bottom:12px; }
+  .species-stats  { display:flex; flex-wrap:wrap; gap:8px; }
+  .sp-stat { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); padding:5px 10px; border-radius:2px; }
+  .sp-stat .sv { font-family:'Bebas Neue',sans-serif; font-size:16px; color:var(--sc-color,#27AE60); line-height:1; }
+  .sp-stat .sk { font-family:'IBM Plex Mono',monospace; font-size:8px; color:var(--smoke-gray); letter-spacing:1px; text-transform:uppercase; display:block; margin-top:2px; }
+
+  /* REGION SECTION */
+  .region-section { padding:60px 40px; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .region-banner {
+    display:flex; align-items:center; gap:20px;
+    padding:20px 24px; margin-bottom:28px;
+    background:linear-gradient(90deg, var(--rb-color,rgba(39,174,96,0.15)) 0%, transparent 100%);
+    border-left:5px solid var(--rb-color, #27AE60);
+    border-radius:2px;
+  }
+  .rb-flag { font-size:36px; flex-shrink:0; }
+  .rb-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(24px,3.5vw,36px); letter-spacing:1px; color:var(--white); line-height:1; }
+  .rb-sub   { font-family:'Lora',serif; font-size:13px; color:var(--smoke-light); margin-top:4px; line-height:1.5; }
+  .rb-stats { display:flex; gap:16px; flex-shrink:0; flex-wrap:wrap; }
+  .rbs-item { text-align:center; min-width:80px; }
+  .rbs-num  { font-family:'Bebas Neue',sans-serif; font-size:26px; color:var(--rb-color,#27AE60); line-height:1; }
+  .rbs-lbl  { font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:1px; text-transform:uppercase; color:var(--smoke-gray); }
+
+  /* STAT CARDS */
+  .wildlife-stat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin:24px 0; }
+  .ws-card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.07);
+    border-top:3px solid var(--wc-color,#27AE60);
+    padding:16px; border-radius:2px;
+  }
+  .wc-value { font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,34px); color:var(--wc-color,#27AE60); line-height:1; margin-bottom:6px; }
+  .wc-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--smoke-gray); margin-bottom:4px; }
+  .wc-source{ font-family:'IBM Plex Mono',monospace; font-size:8.5px; color:rgba(138,134,128,0.55); }
+
+  /* FIRE EVENT IMPACT TABLE */
+  .impact-table { width:100%; border-collapse:collapse; margin:20px 0; font-size:13px; }
+  .impact-table th { background:rgba(39,174,96,0.12); font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--bio-green); padding:9px 12px; text-align:left; border-bottom:1px solid rgba(39,174,96,0.25); }
+  .impact-table td { padding:9px 12px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--smoke-light); vertical-align:top; }
+  .impact-table tr:hover td { background:rgba(39,174,96,0.03); }
+  .impact-table td.fire-col { font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--fire-amber); }
+  .impact-table td.species-col { color:var(--paper); font-style:italic; }
+  .impact-table td.impact-col { color:var(--fire-orange); }
+
+  /* CALLOUT */
+  .callout { background:rgba(39,174,96,0.08); border:1px solid rgba(39,174,96,0.2); border-left:4px solid #27AE60; padding:18px 20px; margin:24px 0; border-radius:0 4px 4px 0; }
+  .callout .stat { font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,4vw,44px); color:#27AE60; line-height:1; display:block; margin-bottom:8px; }
+  .callout p { font-family:'Lora',serif; font-size:14px; color:var(--smoke-light); line-height:1.75; margin:0; }
+
+  /* OVERLAY enhancements */
+  .article-body h2 { color:var(--bio-green); }
+  .article-body .callout .stat { color:var(--bio-green); }
+
+  /* backgrounds */
+  .section-forest  { background:linear-gradient(160deg,#040C06 0%,#080F09 50%,#040C06 100%); }
+  .section-ocean   { background:linear-gradient(160deg,#040810 0%,#060C18 100%); }
+  .section-desert  { background:linear-gradient(160deg,#100A04 0%,#180E06 100%); }
+  .section-arctic  { background:linear-gradient(160deg,#060A12 0%,#08101A 100%); }
+  .section-mid     { background:var(--ash-mid); }
+
+  @media(max-width:768px) {
+    .species-grid { grid-template-columns:1fr; }
+    .region-banner { flex-direction:column; align-items:flex-start; }
+    .rb-stats { width:100%; }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ═══ BACK TO TOP ═══ -->
+<a href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="back-to-top" id="backToTop">↑</a>
+
+<!-- ═══ NAV ═══ -->
+<nav class="fs-topbar" role="navigation">
+  <a href="https://forestsatai.com" onclick="closeOverlay();window.scrollTo({top:0,behavior:'smooth'});" class="fs-brand">
+     <span class="logo"><img src="img/logo.png"></span>
+  </a>
+  <ul class="fs-nav-links">
+    <li><a href="javascript:void(0)" onclick="closeOverlay();window.scrollTo({top:0,behavior:'smooth'});" class="fs-home-btn">🏠 Home</a></li>
+    <li class="fs-nav-sep"></li>
+    <li class="fs-nav-dropdown">
+      <button>Sections</button>
+      <div class="dropdown-panel">
+        <div class="dp-section">Page Sections</div>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('global-stats')"><span class="dp-icon">📊</span><span class="dp-text">Global Statistics</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('australia-section')"><span class="dp-icon">🇦🇺</span><span class="dp-text">Australia — 3 Billion Animals</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('amazon-section')"><span class="dp-icon">🌎</span><span class="dp-text">Amazon — 95% Species Affected</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('california-section')"><span class="dp-icon">🇺🇸</span><span class="dp-text">North America</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('europe-section')"><span class="dp-icon">🇪🇺</span><span class="dp-text">Europe &amp; Mediterranean</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('global-section')"><span class="dp-icon">🌍</span><span class="dp-text">Global — Russia, Indonesia, Africa</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="scrollToSection('impact-table')"><span class="dp-icon">📋</span><span class="dp-text">Fire Event Impact Table</span><span class="dp-arrow">›</span></a>
+      </div>
+    </li>
+    <li class="fs-nav-dropdown">
+      <button>Research Articles</button>
+      <div class="dropdown-panel">
+        <div class="dp-section">5 Deep-Dive Articles</div>
+        <button class="dp-item" onclick="openOverlay('extinction_risk')"><span class="dp-icon">💀</span><span class="dp-text">How Wildfire Drives Extinction</span><span class="dp-arrow">›</span></button>
+        <button class="dp-item" onclick="openOverlay('australia_bio')"><span class="dp-icon">🐨</span><span class="dp-text">Australia: 3 Billion Animals</span><span class="dp-arrow">›</span></button>
+        <button class="dp-item" onclick="openOverlay('amazon_bio')"><span class="dp-icon">🦜</span><span class="dp-text">Amazon: 95% Species Affected</span><span class="dp-arrow">›</span></button>
+        <button class="dp-item" onclick="openOverlay('california_bio')"><span class="dp-icon">🦅</span><span class="dp-text">California Megafires &amp; Wildlife</span><span class="dp-arrow">›</span></button>
+        <button class="dp-item" onclick="openOverlay('global_flora')"><span class="dp-icon">🌿</span><span class="dp-text">Flora, Ancient Trees &amp; Plants</span><span class="dp-arrow">›</span></button>
+      </div>
+    </li>
+    <li class="fs-nav-dropdown">
+      <button>Species Filter</button>
+      <div class="dropdown-panel right">
+        <div class="dp-section">Filter by Status</div>
+        <a class="dp-item" href="javascript:void(0)" onclick="filterSpecies('all',this)"><span class="dp-icon">🌿</span><span class="dp-text">All Species</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="filterSpecies('CR',this)"><span class="dp-icon">🔴</span><span class="dp-text">Critically Endangered</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="filterSpecies('EN',this)"><span class="dp-icon">🟠</span><span class="dp-text">Endangered</span><span class="dp-arrow">›</span></a>
+        <a class="dp-item" href="javascript:void(0)" onclick="filterSpecies('VU',this)"><span class="dp-icon">🟡</span><span class="dp-text">Vulnerable</span><span class="dp-arrow">›</span></a>
+      </div>
+    </li>
+    <li class="fs-nav-sep"></li>
+    <li><a href="https://forestsatai.com"   rel="noopener" class="fs-nav-cta">↗ ForestSat.space</a></li>
+  </ul>
+  <button class="fs-hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ MOBILE MENU ═══ -->
+<div class="fs-mobile-menu" id="mobileMenu">
+  <div class="m-section">Sections</div>
+  <button class="m-link" onclick="scrollToSection('global-stats');closeMobileMenu()"><span class="m-icon">📊</span> Global Statistics</button>
+  <button class="m-link" onclick="scrollToSection('australia-section');closeMobileMenu()"><span class="m-icon">🇦🇺</span> Australia</button>
+  <button class="m-link" onclick="scrollToSection('amazon-section');closeMobileMenu()"><span class="m-icon">🌎</span> Amazon</button>
+  <button class="m-link" onclick="scrollToSection('california-section');closeMobileMenu()"><span class="m-icon">🇺🇸</span> North America</button>
+  <button class="m-link" onclick="scrollToSection('europe-section');closeMobileMenu()"><span class="m-icon">🇪🇺</span> Europe</button>
+  <button class="m-link" onclick="scrollToSection('global-section');closeMobileMenu()"><span class="m-icon">🌍</span> Global</button>
+  <button class="m-link" onclick="scrollToSection('impact-table');closeMobileMenu()"><span class="m-icon">📋</span> Fire Impact Table</button>
+  <div class="m-section">Research Articles</div>
+  <button class="m-link" onclick="openOverlay('extinction_risk');closeMobileMenu()"><span class="m-icon">💀</span> How Fire Drives Extinction</button>
+  <button class="m-link" onclick="openOverlay('australia_bio');closeMobileMenu()"><span class="m-icon">🐨</span> Australia: 3 Billion Animals</button>
+  <button class="m-link" onclick="openOverlay('amazon_bio');closeMobileMenu()"><span class="m-icon">🦜</span> Amazon: 95% Species Affected</button>
+  <button class="m-link" onclick="openOverlay('california_bio');closeMobileMenu()"><span class="m-icon">🦅</span> California Megafires</button>
+  <button class="m-link" onclick="openOverlay('global_flora');closeMobileMenu()"><span class="m-icon">🌿</span> Flora &amp; Ancient Trees</button>
+</div>
+
+<!-- ═══ JUMP BAR ═══ -->
+<div class="section-jump-bar">
+  <a href="javascript:void(0)" onclick="scrollToSection('global-stats')" class="jump-pill">📊 Global Stats</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('australia-section')" class="jump-pill">🇦🇺 Australia</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('amazon-section')" class="jump-pill">🌎 Amazon</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('california-section')" class="jump-pill">🇺🇸 North America</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('europe-section')" class="jump-pill">🇪🇺 Europe</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('global-section')" class="jump-pill green">🌍 Global</a>
+  <a href="javascript:void(0)" onclick="scrollToSection('impact-table')" class="jump-pill">📋 Impact Table</a>
+  <a href="javascript:void(0)" onclick="openOverlay('extinction_risk')" class="jump-pill">💀 Extinction Risk</a>
+  <a href="javascript:void(0)" onclick="openOverlay('australia_bio')" class="jump-pill">🐨 Australia</a>
+  <a href="javascript:void(0)" onclick="openOverlay('amazon_bio')" class="jump-pill">🦜 Amazon</a>
+  <a href="javascript:void(0)" onclick="openOverlay('global_flora')" class="jump-pill green">🌿 Flora</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero" id="top">
+  <a href="https://forestsat.space" target="_blank" rel="noopener" class="fs-hero-badge">
+    <span class="badge-logo">🌿</span>
+    <span class="badge-text">ForestSat.space — Wildfire Wildlife &amp; Biodiversity Research</span>
+  </a>
+  <div class="hero-eyebrow">Compiled from WWF, IUCN Red List, PNAS, Nature Climate Change, Zoos Victoria, Mongabay, NASA, EPBC Act &amp; peer-reviewed biodiversity research · Updated through 2025</div>
+  <h1>Wildfires &amp;<span>Wildlife</span></h1>
+  <p class="hero-sub">When fire moves through a forest, it doesn't discriminate. Koalas burn in eucalyptus canopies. Jaguars lose their territory to deforestation fires. Three billion Australian animals die in a single season. Vultures lose the only Balkan colony that remained. Ancient sequoias that survived 3,000 years collapse in a megafire. This research documents the biodiversity catastrophe unfolding from Australia to the Amazon, Siberia to Spain — drawing on peer-reviewed science, IUCN Red List data, and emergency conservation records to name what is being lost. A ForestSat research initiative.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">3 Billion</span><span class="label">Animals Harmed — Australia Black Summer</span></div>
+    <div class="hero-stat"><span class="num">4,400+</span><span class="label">Vertebrate Species at Risk from Changed Fire Activity</span></div>
+    <div class="hero-stat"><span class="num">93–95%</span><span class="label">Amazonian Species Affected by Fire (2001–2019)</span></div>
+    <div class="hero-stat"><span class="num">9,592</span><span class="label">Species Facing Increased Future Wildfire Exposure</span></div>
+  </div>
+</header>
+
+<!-- ═══ GLOBAL STATS ═══ -->
+<section class="section-forest" style="padding:60px 40px;" id="global-stats">
+  <div class="section-label">ForestSat Research · Global Biodiversity Impact</div>
+  <h2 class="section-title">The Scale of Wildfire's Biodiversity Crisis</h2>
+  <p style="font-family:'Lora',serif;font-size:15px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">Wildfire is emerging as one of the primary drivers of global biodiversity loss — alongside habitat destruction, climate change, invasive species, and pollution. The following statistics, drawn from peer-reviewed research and major conservation organizations, establish the scope of a crisis that is accelerating as fire seasons grow longer, more intense, and geographically broader.</p>
+
+  <div class="wildlife-stat-grid">
+    <div class="ws-card" style="--wc-color:#C0392B;"><div class="wc-value">3 Billion</div><div class="wc-label">Animals harmed — Australia Black Summer alone</div><div class="wc-source">WWF / Prof. Dickman, Univ. Sydney (2020)</div></div>
+    <div class="ws-card" style="--wc-color:#E74C3C;"><div class="wc-value">4,400+</div><div class="wc-label">Vertebrate species at extinction risk from changed fire</div><div class="wc-source">Ayars et al. PNAS (2023); Ruffault et al. Nature Climate Change (2025)</div></div>
+    <div class="ws-card" style="--wc-color:#E74C3C;"><div class="wc-value">9,592</div><div class="wc-label">Non-marine species facing increased future wildfire exposure</div><div class="wc-source">Ruffault et al. Nature Climate Change (March 2025)</div></div>
+    <div class="ws-card" style="--wc-color:#E67E22;"><div class="wc-value">93–95%</div><div class="wc-label">Amazon species affected by fire (2001–2019)</div><div class="wc-source">Enquist et al. Nature (2021) — 14,000 species assessed</div></div>
+    <div class="ws-card" style="--wc-color:#E67E22;"><div class="wc-value">144</div><div class="wc-label">New species listed as threatened in Australia post-Black Summer</div><div class="wc-source">EPBC Act; Earth.org (January 2024)</div></div>
+    <div class="ws-card" style="--wc-color:#F39C12;"><div class="wc-value">10–19%</div><div class="wc-label">Of ALL giant sequoias killed — 2021 California fires</div><div class="wc-source">NPS / USFS (2021) — KNP Complex + Windy Fire</div></div>
+    <div class="ws-card" style="--wc-color:#F39C12;"><div class="wc-value">508</div><div class="wc-label">California vertebrate species potentially affected 2020–21</div><div class="wc-source">Ayars et al. PNAS (2023)</div></div>
+    <div class="ws-card" style="--wc-color:#27AE60;"><div class="wc-value">83.9%</div><div class="wc-label">Of wildfire-vulnerable species face higher risk by 2050</div><div class="wc-source">Ruffault et al. Nature Climate Change (2025)</div></div>
+    <div class="ws-card" style="--wc-color:#C0392B;"><div class="wc-value">20%</div><div class="wc-label">Of Australia's temperate forest cover burned in Black Summer</div><div class="wc-source">Nature Climate Change (February 2020)</div></div>
+    <div class="ws-card" style="--wc-color:#E67E22;"><div class="wc-value">~137/day</div><div class="wc-label">Species potentially going extinct from Amazon habitat loss</div><div class="wc-source">IPBES / Amazon Frontlines estimate</div></div>
+    <div class="ws-card" style="--wc-color:#E74C3C;"><div class="wc-value">&gt;50%</div><div class="wc-label">Orangutan population decline in 60 years (Indonesia fires)</div><div class="wc-source">IUCN Red List / IFAW</div></div>
+    <div class="ws-card" style="--wc-color:#8E44AD;"><div class="wc-value">1 Million</div><div class="wc-label">Species at extinction risk globally (primary driver: habitat fire/loss)</div><div class="wc-source">IPBES Global Assessment (2019)</div></div>
+  </div>
+
+  <div style="margin-top:24px; display:flex; flex-wrap:wrap; gap:12px;">
+    <button onclick="openOverlay('extinction_risk')" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(39,174,96,0.5);background:rgba(39,174,96,0.1);color:#27AE60;cursor:pointer;border-radius:2px;">→ How Wildfire Drives Extinction</button>
+  </div>
+</section>
+
+<!-- ═══ AUSTRALIA ═══ -->
+<section class="region-section section-mid" id="australia-section">
+  <div class="region-banner" style="--rb-color:#E8711A;">
+    <div class="rb-flag">🇦🇺</div>
+    <div>
+      <div class="rb-title">Australia — Black Summer &amp; Beyond</div>
+      <div class="rb-sub">The largest wildlife mortality event in recorded natural history: 3 billion animals, 144 species relisted, entire ecosystems destroyed.</div>
+    </div>
+    <div class="rb-stats">
+      <div class="rbs-item"><div class="rbs-num" style="color:#E8711A;">3B</div><div class="rbs-lbl">Animals Harmed</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#E8711A;">24.3M</div><div class="rbs-lbl">Hectares Burned</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#E8711A;">144</div><div class="rbs-lbl">Species Relisted</div></div>
+    </div>
+  </div>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">The Black Summer fires of 2019–20 affected an area the size of the United Kingdom. A team of 10 scientists studying 28 million acres concluded that 3 billion individual native animals were harmed or killed — the largest such event ever quantified. Slow-moving species like koalas, echidnas, and wombats had no escape. Ground-nesting birds lost eggs and chicks. The Australian Alps' alpine communities — the world's southernmost mainland ski terrain — were stripped of the insulating snow cover and vegetation their unique fauna depend on. The EPBC Act subsequently listed 144 additional species as threatened — directly attributable to the fires.</p>
+  <div class="species-grid">
+    <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(20,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Koala_climbing_tree.jpg/640px-Koala_climbing_tree.jpg" alt="Koala" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Koala</div>
+        <div class="species-latin">Phascolarctos cinereus</div>
+        <div class="species-region">🇦🇺 Australia</div>
+        <div class="species-impact">Slow-moving and dependent on eucalyptus trees for food and shelter, koalas cannot outrun fire. The Black Summer killed an estimated 30% of the koala population in some regions. NSW/QLD populations relisted as Endangered in 2022, partly due to Black Summer losses. Koalas suffer severe burns to paws and face as they climb trees in hope of escape.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">30%</div><span class="sk">Population lost (some regions)</span></div><div class="sp-stat"><div class="sv">EN</div><span class="sk">IUCN Status post-2020</span></div><div class="sp-stat"><div class="sv">5,000</div><span class="sk">Estimated to survive Kangaroo Island</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,15,5,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Platypus.jpg/640px-Platypus.jpg" alt="Platypus" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-NT">NEAR THREATENED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Platypus</div>
+        <div class="species-latin">Ornithorhynchus anatinus</div>
+        <div class="species-region">🇦🇺 Australia</div>
+        <div class="species-impact">One of the world's most unusual mammals, the platypus inhabits freshwater streams whose quality is severely degraded by post-fire ash and sediment runoff. The Black Summer burned catchments of key platypus rivers in Victoria and NSW. Post-fire flooding deposited toxic ash loads into streams, killing invertebrates that platypuses feed on.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">NT</div><span class="sk">Near Threatened (trending VU)</span></div><div class="sp-stat"><div class="sv">300K–1M</div><span class="sk">Estimated surviving individuals</span></div><div class="sp-stat"><div class="sv">High</div><span class="sk">Post-fire water impact</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#C0392B; --sc-bg:rgba(20,0,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mountain_Pygmy_Possum_%28Burramys_parvus%29.jpg/640px-Mountain_Pygmy_Possum_%28Burramys_parvus%29.jpg" alt="Mountain Pygmy Possum" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Mountain Pygmy Possum</div>
+        <div class="species-latin">Burramys parvus</div>
+        <div class="species-region">🇦🇺 Alpine Victoria</div>
+        <div class="species-impact">Confined to just a few hectares of alpine boulder fields in Victoria's ski areas, this tiny marsupial is one of Australia's most critically endangered mammals. Fire destroyed surrounding vegetation it uses for foraging and nesting. Zoos Victoria had to provide emergency supplementary food to wild populations. The species is also losing snow cover — its winter dormancy depends on insulating snow.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv">~2,500</div><span class="sk">Total wild individuals</span></div><div class="sp-stat"><div class="sv">Emergency</div><span class="sk">Zoo feeding programme activated</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(15,8,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Eastern_Bristlebird_%28Dasyornis_brachypterus%29_%28cropped%29.jpg/640px-Eastern_Bristlebird_%28Dasyornis_brachypterus%29_%28cropped%29.jpg" alt="Eastern Bristlebird" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Eastern Bristlebird</div>
+        <div class="species-latin">Dasyornis brachypterus</div>
+        <div class="species-region">🇦🇺 SE Australia</div>
+        <div class="species-impact">One of Australia's rarest birds, the eastern bristlebird is a ground-dweller confined to fragmented coastal heath and forest. The Black Summer destroyed critical habitat. Zoos Victoria conducted emergency evacuations of breeding populations to off-site captive facilities before fire reached key sites — one of the first documented wildlife evacuations in response to an imminent megafire.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv"><2,000</div><span class="sk">Wild individuals</span></div><div class="sp-stat"><div class="sv">Evacuated</div><span class="sk">Emergency Zoo relocation</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#F39C12; --sc-bg:rgba(15,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Southern_corroboree_frog_%28Pseudophryne_corroboree%29.jpg/640px-Southern_corroboree_frog_%28Pseudophryne_corroboree%29.jpg" alt="Southern Corroboree Frog" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Southern Corroboree Frog</div>
+        <div class="species-latin">Pseudophryne corroboree</div>
+        <div class="species-region">🇦🇺 Snowy Mountains</div>
+        <div class="species-impact">One of the world's most visually striking frogs — vivid yellow and black — the southern corroboree frog is already functionally extinct in the wild. Fewer than 50 individuals survived before Black Summer. Fire and drought have destroyed the sphagnum moss bogs of the Snowy Mountains it requires for breeding. A captive breeding programme at several Australian zoos maintains the species from extinction.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv"><50</div><span class="sk">Wild individuals remaining</span></div><div class="sp-stat"><div class="sv">Captive breeding</div><span class="sk">Last line of survival</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#C0392B; --sc-bg:rgba(20,0,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Sminthopsis_fuliginosus%2C_Perth_Zoo.jpg/640px-Sminthopsis_fuliginosus%2C_Perth_Zoo.jpg" alt="Kangaroo Island Dunnart" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Kangaroo Island Dunnart</div>
+        <div class="species-latin">Sminthopsis fuliginosus aitkeni</div>
+        <div class="species-region">🇦🇺 Kangaroo Island</div>
+        <div class="species-impact">This tiny carnivorous marsupial — the size of a mouse — was found only on Kangaroo Island, South Australia. The Black Summer fires burned 210,000 hectares of the island — approximately 48% of its land area. The dunnart population was estimated to have fallen to fewer than 500 individuals post-fire. Emergency actions included predator control (feral cats now hunt through burned landscape with no cover for prey).</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv"><500</div><span class="sk">Post-fire estimate</span></div><div class="sp-stat"><div class="sv">48%</div><span class="sk">Of Kangaroo Island burned</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;">
+    <button onclick="openOverlay('australia_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(232,113,26,0.5);background:rgba(232,113,26,0.1);color:#E8711A;cursor:pointer;border-radius:2px;">→ Read Full Australia Biodiversity Analysis</button>
+  </div>
+</section>
+
+<!-- ═══ AMAZON ═══ -->
+<section class="region-section section-forest" id="amazon-section">
+  <div class="region-banner" style="--rb-color:#27AE60;">
+    <div class="rb-flag">🌎</div>
+    <div>
+      <div class="rb-title">Amazon &amp; South America — Fire-Naïve Forest</div>
+      <div class="rb-sub">93–95% of 14,000 documented Amazonian species affected by fire. The rainforest never evolved to burn — and when it does, nothing is adapted to survive it.</div>
+    </div>
+    <div class="rb-stats">
+      <div class="rbs-item"><div class="rbs-num" style="color:#27AE60;">93–95%</div><div class="rbs-lbl">Species Affected</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#27AE60;">14,000</div><div class="rbs-lbl">Species Assessed</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#27AE60;">10,000</div><div class="rbs-lbl">km²/yr Lost 2019+</div></div>
+    </div>
+  </div>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">The Amazon rainforest is described by scientists as "fire-naïve" — most species evolved without fire and have no adaptations to survive it. An intact rainforest is too humid to burn; deforestation dries adjacent forest and creates the conditions for fire to spread. The political cycles of Brazilian deforestation enforcement (aggressive under Bolsonaro 2019–22; recovering under Lula 2023–) are directly visible in biodiversity impact data. A landmark Nature study found that between 2001 and 2019, 93–95% of 14,000 documented Amazonian species had already suffered some consequence of fire. Scientists warn the Amazon is approaching a tipping point — where 20–25% deforestation permanently shifts it from forest to savanna, releasing billions of tonnes of carbon.</p>
+  <div class="species-grid">
+    <div class="species-card" style="--sc-color:#F39C12; --sc-bg:rgba(15,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Standing_jaguar.jpg/640px-Standing_jaguar.jpg" alt="Jaguar" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-NT">NEAR THREATENED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Jaguar</div>
+        <div class="species-latin">Panthera onca</div>
+        <div class="species-region">🌎 Amazon Basin</div>
+        <div class="species-impact">The Amazon's apex predator, the jaguar requires vast unbroken forest territories of 25–200 km² per individual. Fires fragment these territories, isolate populations, and destroy prey species. Ranchers — many of whom set fires to clear land — also kill jaguars that prey on livestock. The deforestation arc in southern Amazon is pushing the jaguar's range northward. Population has declined 25–50% in last century.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">NT→VU</div><span class="sk">Near Threatened, trending</span></div><div class="sp-stat"><div class="sv">~64,000</div><span class="sk">Wild individuals remaining</span></div><div class="sp-stat"><div class="sv">25–50%</div><span class="sk">Population decline in century</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(15,8,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Harpia_harpyja_-_Buffalo_Zoo.jpg/640px-Harpia_harpyja_-_Buffalo_Zoo.jpg" alt="Harpy Eagle" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-VU">VULNERABLE</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Harpy Eagle</div>
+        <div class="species-latin">Harpia harpyja</div>
+        <div class="species-region">🌎 Amazon / Central America</div>
+        <div class="species-impact">The largest and most powerful eagle in the Americas, the harpy eagle requires vast tracts of undisturbed primary Amazon forest for its enormous nesting territory (up to 100 km²). Fire directly destroys nesting trees and fragments territories. The species is already vulnerable from deforestation; fire accelerates the loss of primary forest it depends on. Population density is extremely low — typically 1 breeding pair per 400–500 km².</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">VU</div><span class="sk">Vulnerable</span></div><div class="sp-stat"><div class="sv">1 pair</div><span class="sk">Per 400–500 km² territory</span></div><div class="sp-stat"><div class="sv">20,000</div><span class="sk">Estimated remaining</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,15,8,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pteronura_brasiliensis_%28Araras_Lodge%2C_MT%2C_Brazil%29.jpg/640px-Pteronura_brasiliensis_%28Araras_Lodge%2C_MT%2C_Brazil%29.jpg" alt="Giant River Otter" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Giant River Otter</div>
+        <div class="species-latin">Pteronura brasiliensis</div>
+        <div class="species-region">🌎 Amazon Basin</div>
+        <div class="species-impact">The world's largest otter, already under pressure from illegal hunting and habitat destruction, faces additional threats from fire-driven ash and sediment runoff that kills the fish populations it depends on. Over 3,000 species of fish in the Amazon — many highly specialized — face habitat degradation when fire ash makes its way into rivers. Giant river otter population has declined by more than 80% since the 1970s.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv">80%</div><span class="sk">Population decline since 1970s</span></div><div class="sp-stat"><div class="sv">~2,000–5,000</div><span class="sk">Wild individuals</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#F39C12; --sc-bg:rgba(15,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Golden-headed_lion_tamarin_-_Leontopithecus_chrysomelas.jpg/640px-Golden-headed_lion_tamarin_-_Leontopithecus_chrysomelas.jpg" alt="Golden-headed Lion Tamarin" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Golden-headed Lion Tamarin</div>
+        <div class="species-latin">Leontopithecus chrysomelas</div>
+        <div class="species-region">🌎 Bahia, Brazil</div>
+        <div class="species-impact">Primates were identified as the most affected group in the landmark Nature study on Amazon fires — they depend on trees for movement, food, and shelter, making them uniquely vulnerable to fire-driven deforestation. This tamarin is already restricted to fragmented Atlantic Forest fragments. Fire events repeatedly burn through its remaining habitat. Population estimated at fewer than 6,000 individuals.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv"><6,000</div><span class="sk">Individuals remaining</span></div><div class="sp-stat"><div class="sv">Atlantic Forest</div><span class="sk">Most endangered biome</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;">
+    <button onclick="openOverlay('amazon_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(39,174,96,0.5);background:rgba(39,174,96,0.1);color:#27AE60;cursor:pointer;border-radius:2px;">→ Read Full Amazon Biodiversity Analysis</button>
+  </div>
+</section>
+
+<!-- ═══ CALIFORNIA / NORTH AMERICA ═══ -->
+<section class="region-section section-desert" id="california-section">
+  <div class="region-banner" style="--rb-color:#F39C12;">
+    <div class="rb-flag">🇺🇸</div>
+    <div>
+      <div class="rb-title">North America — Megafire &amp; the 508 Species</div>
+      <div class="rb-sub">The 2020–21 California megafires burned 10× historical average, affected 508 vertebrate species, and killed 10–19% of all giant sequoias on Earth.</div>
+    </div>
+    <div class="rb-stats">
+      <div class="rbs-item"><div class="rbs-num" style="color:#F39C12;">508</div><div class="rbs-lbl">Vertebrates Affected</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#F39C12;">10–19%</div><div class="rbs-lbl">Giant Sequoias Killed</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#F39C12;">19,000 km²</div><div class="rbs-lbl">Forest Burned 2020–21</div></div>
+    </div>
+  </div>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">California's 2020–21 megafire seasons were unlike anything in the modern record. Fifty-eight percent of all wildfire-damaged area since 2012 occurred in just those two years. The result was catastrophic for wildlife: 100 vertebrate species lost more than 10% of their entire geographic range in two years. High-severity fire — which kills trees and eliminates habitat rather than restoring it — burned 89% of total burned area in patches larger than historical maximums. Species adapted to low-intensity fire are completely unprepared for megafire at this scale and severity.</p>
+  <div class="species-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
+        <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,12,5,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sequoiadendron_giganteum_at_Mariposa_Grove.jpg/640px-Sequoiadendron_giganteum_at_Mariposa_Grove.jpg" alt="Giant Sequoia" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-NT">NEAR THREATENED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Giant Sequoia</div>
+        <div class="species-latin">Sequoiadendron giganteum</div>
+        <div class="species-region">🇺🇸 Sierra Nevada, California</div>
+        <div class="species-impact">The world's largest tree by volume — some over 3,000 years old — evolved with low-intensity fire that actually opens its cones. But the 2021 KNP Complex and Windy Fire exceeded the fire intensity they evolved to survive: 10–19% of ALL giant sequoias on Earth were killed in a single season. NPS wrapped individual trees in fire-resistant foil and deployed helicopter Bambi buckets to protect the oldest specimens.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">NT</div><span class="sk">Near Threatened</span></div><div class="sp-stat"><div class="sv">10–19%</div><span class="sk">Of ALL trees killed in 2021</span></div><div class="sp-stat"><div class="sv">3,000</div><span class="sk">Max age in years</span></div></div>
+      </div>
+    </div>
+        <div class="species-card" style="--sc-color:#8E44AD; --sc-bg:rgba(10,5,18,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/California_condor_06.jpg/640px-California_condor_06.jpg" alt="California Condor" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">California Condor</div>
+        <div class="species-latin">Gymnogyps californianus</div>
+        <div class="species-region">🇺🇸 California, Arizona, Utah</div>
+        <div class="species-impact">Reduced to 22 individuals in 1982, the condor has recovered to 560 through one of the most intensive conservation programmes in history. Wildfires destroy nesting sites in old-growth trees and rock cavities, reduce available carcasses (the condor's food), and displace birds from established territories. The 2020 California fires impacted known nest sites. Condors absorb toxic lead from lead-shot carcasses — a compounding threat in fire-disturbed landscapes.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv">22</div><span class="sk">All-time low (1982)</span></div><div class="sp-stat"><div class="sv">560</div><span class="sk">Population 2022</span></div></div>
+      </div>
+    </div>
+        <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(15,8,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/NSO_Spotted_Owl.jpg/640px-NSO_Spotted_Owl.jpg" alt="Northern Spotted Owl" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Northern Spotted Owl</div>
+        <div class="species-latin">Strix occidentalis caurina</div>
+        <div class="species-region">🇺🇸 Pacific Northwest, California</div>
+        <div class="species-impact">The spotted owl became a symbol of old-growth forest conservation battles in the 1990s. Today megafires present an arguably greater threat than logging. High-severity fires in the Sierra Nevada have destroyed old-growth forest structure the spotted owl requires — large diameter trees with complex canopy layers. The species already declined 75% in the past 25 years; fire-driven old-growth loss continues the decline.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv">75%</div><span class="sk">Population decline (25 yrs)</span></div><div class="sp-stat"><div class="sv">Old-growth</div><span class="sk">Requires multi-century forest</span></div></div>
+      </div>
+    </div>
+        <div class="species-card" style="--sc-color:#F39C12; --sc-bg:rgba(15,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wolverine_-_Jokkmokk.jpg/640px-Wolverine_-_Jokkmokk.jpg" alt="Wolverine" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-VU">VULNERABLE</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Wolverine</div>
+        <div class="species-latin">Gulo gulo</div>
+        <div class="species-region">🇺🇸🇨🇦 Northern Rockies / Boreal</div>
+        <div class="species-impact">North America's largest terrestrial member of the weasel family depends on persistent snowpack for denning — directly threatened by both climate change and fire-driven habitat alteration in the Rocky Mountains. Canada's record 2023 fires burned extensive wolverine habitat in BC and Alberta. The wolverine's low population density and large home range (up to 900 km²) make it extremely sensitive to habitat fragmentation from large fires.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">VU</div><span class="sk">Vulnerable</span></div><div class="sp-stat"><div class="sv">900 km²</div><span class="sk">Individual home range</span></div><div class="sp-stat"><div class="sv"><300</div><span class="sk">US individuals estimated</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;">
+    <button onclick="openOverlay('california_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(243,156,18,0.5);background:rgba(243,156,18,0.1);color:#F39C12;cursor:pointer;border-radius:2px;">→ Read Full California Megafire Wildlife Analysis</button>
+  </div>
+</section>
+
+<!-- ═══ EUROPE ═══ -->
+<section class="region-section section-mid" id="europe-section">
+  <div class="region-banner" style="--rb-color:#8E44AD;">
+    <div class="rb-flag">🇪🇺</div>
+    <div>
+      <div class="rb-title">Europe &amp; Mediterranean — Ancient Ecosystems Under Fire</div>
+      <div class="rb-sub">The world's most ancient land mammals, the only Balkan black vulture colony, and 25,000 endemic plant species face escalating Mediterranean fire.</div>
+    </div>
+    <div class="rb-stats">
+      <div class="rbs-item"><div class="rbs-num" style="color:#8E44AD;">25,000</div><div class="rbs-lbl">Endemic Plant Species</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#8E44AD;">~1,000</div><div class="rbs-lbl">Iberian Lynx (from 100)</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#8E44AD;">1.08M ha</div><div class="rbs-lbl">EU Burned 2025 (Record)</div></div>
+    </div>
+  </div>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">The Mediterranean basin is one of the world's 36 biodiversity hotspots — containing roughly 25,000 plant species, half found nowhere else on Earth. Its remarkable diversity reflects millions of years of evolution in a specific climate. The escalating fire seasons of 2017, 2021, 2022, 2023, and 2025 have burned through the heart of this diversity with increasing frequency and severity. The 2023 Alexandroupolis fire destroyed the Dadia Forest Reserve — the only remaining breeding ground of black vultures in the Balkans. The 2025 Iberian fires, burning 1,079,538 hectares, devastated cork oak woodland that supports the Iberian lynx, Spanish imperial eagle, and Iberian wolf.</p>
+  <div class="species-grid">
+    <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(18,8,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Lynx_pardinus_fotografiado_por_programa_LIFE_Lince.jpg/640px-Lynx_pardinus_fotografiado_por_programa_LIFE_Lince.jpg" alt="Iberian Lynx" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons / LIFE Programme</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Iberian Lynx</div>
+        <div class="species-latin">Lynx pardinus</div>
+        <div class="species-region">🇪🇸🇵🇹 Iberian Peninsula</div>
+        <div class="species-impact">The world's most endangered wild cat species — once reduced to fewer than 100 individuals — has recovered to approximately 1,000 through intensive conservation, but fire remains a major threat. The Iberian lynx depends on Mediterranean scrubland (maquis) and pine forest for prey (primarily rabbits) and denning. Fire destroys habitat and reduces rabbit populations. 90% of endangered species conservation spending in Spain/Portugal goes to the lynx and Spanish imperial eagle.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered (recovering)</span></div><div class="sp-stat"><div class="sv">~1,000</div><span class="sk">Current population (from ~100 in 2002)</span></div><div class="sp-stat"><div class="sv">Maquis fire</div><span class="sk">Primary habitat threat</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#8E44AD; --sc-bg:rgba(10,5,15,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Aguila_imperial.jpg/640px-Aguila_imperial.jpg" alt="Spanish Imperial Eagle" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-VU">VULNERABLE</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Spanish Imperial Eagle</div>
+        <div class="species-latin">Aquila adalberti</div>
+        <div class="species-region">🇪🇸 Spain</div>
+        <div class="species-impact">One of the rarest raptors in Europe, the Spanish imperial eagle nests in the cork oak and stone pine woodlands repeatedly burned by Spanish fire events. Restricted to the Iberian Peninsula, population recovered from approximately 30 pairs in the 1960s to 800+ individuals today — but fire events destroy nesting territories and prey habitat. Over 90% of European species recovery spending has gone to the lynx and this eagle.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">VU</div><span class="sk">Vulnerable</span></div><div class="sp-stat"><div class="sv">~800</div><span class="sk">Individuals (2023)</span></div><div class="sp-stat"><div class="sv">30 pairs</div><span class="sk">Nadir in the 1960s</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#C0392B; --sc-bg:rgba(20,0,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Cinereous_Vulture_RWD.jpg/640px-Cinereous_Vulture_RWD.jpg" alt="Balkan Black Vulture Colony" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-NT">NEAR THREATENED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Balkan Black Vulture Colony</div>
+        <div class="species-latin">Aegypius monachus</div>
+        <div class="species-region">🇬🇷 Dadia Forest, Greece</div>
+        <div class="species-impact">The only breeding colony of black vultures in the Balkans — resident in the Dadia Forest Reserve in northeastern Greece — lost its entire habitat when the 2023 Alexandroupolis fire burned 80,000+ hectares including the vast majority of Dadia. Ecologists described the loss as potentially catastrophic for Balkan vulture conservation. Black vultures are the largest raptors in Europe with a wingspan up to 2.95 m.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">NT</div><span class="sk">Near Threatened</span></div><div class="sp-stat"><div class="sv">Only</div><span class="sk">Balkan breeding population</span></div><div class="sp-stat"><div class="sv">80,000 ha</div><span class="sk">Dadia burned 2023</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#16A085; --sc-bg:rgba(0,12,10,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Mediterranean_monk_seal_1.jpg/640px-Mediterranean_monk_seal_1.jpg" alt="Mediterranean Monk Seal" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Mediterranean Monk Seal</div>
+        <div class="species-latin">Monachus monachus</div>
+        <div class="species-region">🇬🇷🇨🇾 Mediterranean Sea</div>
+        <div class="species-impact">One of the world's rarest marine mammals — fewer than 800 individuals — the Mediterranean monk seal faces coastal habitat disruption from fires that burn cliff-top vegetation above its pupping caves. Ash and toxic runoff from coastal fires degrade nearshore marine habitat and fish populations. 2023 and 2025 Greek fires burned extensive coastal zones across Aegean islands.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv"><800</div><span class="sk">Total world population</span></div><div class="sp-stat"><div class="sv">1 of 2</div><span class="sk">Surviving monk seal species</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;">
+    <button onclick="openOverlay('global_flora')" style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border:1px solid rgba(142,68,173,0.5);background:rgba(142,68,173,0.1);color:#8E44AD;cursor:pointer;border-radius:2px;">→ Flora, Ancient Trees &amp; Plant Extinction</button>
+  </div>
+</section>
+
+<!-- ═══ GLOBAL ═══ -->
+<section class="region-section section-forest" id="global-section">
+  <div class="region-banner" style="--rb-color:#16A085;">
+    <div class="rb-flag">🌍</div>
+    <div>
+      <div class="rb-title">Global — Russia, Indonesia, Africa &amp; Asia</div>
+      <div class="rb-sub">From Siberian reindeer herds to Sumatran tigers, orangutans on burning peat, and African wild dogs: fire's impact on wildlife across the planet's remaining wildlands.</div>
+    </div>
+    <div class="rb-stats">
+      <div class="rbs-item"><div class="rbs-num" style="color:#16A085;">&lt;400</div><div class="rbs-lbl">Sumatran Tigers</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#16A085;">&lt;800</div><div class="rbs-lbl">Med. Monk Seals</div></div>
+      <div class="rbs-item"><div class="rbs-num" style="color:#16A085;">&lt;100</div><div class="rbs-lbl">Amur Leopards</div></div>
+    </div>
+  </div>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:28px;">Fire-driven biodiversity loss is a global phenomenon — each biome presenting unique vulnerabilities. Indonesia's peat swamp fires destroy orangutan habitat while releasing ancient carbon stored for thousands of years. Siberian fires devastate reindeer lichens that take decades to recover, threatening Indigenous herding cultures. South Korea's 2025 fires, unprecedented in their scale, killed a 1,300-year-old Buddhist temple and the wildlife of temperate East Asian forests not evolved for megafire. Africa's savanna fires — historically natural and ecologically important — are becoming too frequent and intense for wildlife populations to recover between events.</p>
+  <div class="species-grid">
+    <div class="species-card" style="--sc-color:#E8711A; --sc-bg:rgba(18,8,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG/640px-Orang_Utan%2C_Semenggok_Forest_Reserve%2C_Sarawak%2C_Borneo%2C_Malaysia.JPG" alt="Orangutan" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Orangutan</div>
+        <div class="species-latin">Pongo pygmaeus / P. abelii</div>
+        <div class="species-region">🇮🇩 Borneo & Sumatra</div>
+        <div class="species-impact">Both Bornean and Sumatran orangutans are Critically Endangered. The 2015 and 2019 Indonesian peatland fires — set primarily to clear land for palm oil and pulpwood — destroyed vast areas of peat swamp forest, the orangutan's primary habitat. Orangutans cannot outrun fire and are frequently found injured and displaced after fire events. Population has declined by more than 50% in the past 60 years.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv">>50%</div><span class="sk">Population decline in 60 years</span></div><div class="sp-stat"><div class="sv">104,700</div><span class="sk">Bornean individuals (2004 est.)</span></div><div class="sp-stat"><div class="sv">~14,600</div><span class="sk">Sumatran individuals</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#C0392B; --sc-bg:rgba(20,0,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/P_tigris_tigris.jpg/640px-P_tigris_tigris.jpg" alt="Sumatran Tiger" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Sumatran Tiger</div>
+        <div class="species-latin">Panthera tigris sumatrae</div>
+        <div class="species-region">🇮🇩 Sumatra</div>
+        <div class="species-impact">The last surviving tiger subspecies in Indonesia — all others are extinct or likely extinct — the Sumatran tiger requires large tracts of lowland forest that Indonesian fires have progressively destroyed. Fewer than 400 individuals remain. The 2015 El Niño-driven fire season, which produced 2,280 megatonnes of carbon globally, burned critical Sumatran tiger habitat. Palm oil expansion fires continue destroying the forest.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv"><400</div><span class="sk">Wild individuals remaining</span></div><div class="sp-stat"><div class="sv">Other 2 taxa</div><span class="sk">Extinct in wild</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,12,5,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Rangifer_tarandus_-_Jelenh_spitsberski.jpg/640px-Rangifer_tarandus_-_Jelenh_spitsberski.jpg" alt="Reindeer / Caribou" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-VU">VULNERABLE</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Reindeer / Caribou</div>
+        <div class="species-latin">Rangifer tarandus</div>
+        <div class="species-region">🇷🇺 Siberia / Sakha</div>
+        <div class="species-impact">Siberian fires are devastating to Indigenous reindeer herding peoples and to the animals themselves. Fires destroy lichen pastures that reindeer depend on in winter — lichen grows only 1–3 mm per year and takes decades to recover. Fire smoke disrupts migration routes. Catastrophic fires like 2021 Yakutia destroyed herding grounds for multiple Indigenous Selkup, Evenki, and Yakut communities.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">VU</div><span class="sk">Vulnerable</span></div><div class="sp-stat"><div class="sv">1–3mm/yr</div><span class="sk">Lichen regrowth rate</span></div><div class="sp-stat"><div class="sv">Decades</div><span class="sk">To recover post-fire pasture</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,12,5,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sequoiadendron_giganteum_at_Mariposa_Grove.jpg/640px-Sequoiadendron_giganteum_at_Mariposa_Grove.jpg" alt="Giant Sequoia" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-NT">NEAR THREATENED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Giant Sequoia</div>
+        <div class="species-latin">Sequoiadendron giganteum</div>
+        <div class="species-region">🇺🇸 Sierra Nevada, California</div>
+        <div class="species-impact">The world's largest tree by volume — some specimens over 3,000 years old — the giant sequoia evolved with low-intensity fire and actually requires it for cone release. But the megafires of 2021 killed 10–19% of ALL giant sequoias on Earth in a single season. The KNP Complex and Windy Fire killed trees that had survived 3,000 years of previous fires, because uncharacteristic high-severity megafire exceeded their evolved tolerance.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">NT</div><span class="sk">Near Threatened</span></div><div class="sp-stat"><div class="sv">10–19%</div><span class="sk">Of ALL giant sequoias killed in 2021</span></div><div class="sp-stat"><div class="sv">3,000</div><span class="sk">Max age (years)</span></div><div class="sp-stat"><div class="sv">~80,000</div><span class="sk">Trees estimated remaining</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#8E44AD; --sc-bg:rgba(10,5,18,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/California_condor_06.jpg/640px-California_condor_06.jpg" alt="California Condor" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">California Condor</div>
+        <div class="species-latin">Gymnogyps californianus</div>
+        <div class="species-region">🇺🇸 California / Arizona</div>
+        <div class="species-impact">The largest North American bird — a 10 kg vulture with a 3m wingspan — was reduced to just 22 individuals in 1982 before captive breeding began. The condor has recovered to 560 individuals (2022) through one of the most costly conservation programmes in history. Wildfires directly destroy nesting cavities in old-growth trees and cliffs, reduce large mammal carcasses (the condor's food), and displace the birds from established territories. The 2020 fire season impacted known nest sites.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv">22</div><span class="sk">All-time low (1982)</span></div><div class="sp-stat"><div class="sv">560</div><span class="sk">Population by 2022</span></div><div class="sp-stat"><div class="sv">3m</div><span class="sk">Wingspan</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#F39C12; --sc-bg:rgba(15,10,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/African_wild_dog_2015-09-28_at_Laikipia_Nature_Conservancy_%28cropped%29.jpg/640px-African_wild_dog_2015-09-28_at_Laikipia_Nature_Conservancy_%28cropped%29.jpg" alt="African Wild Dog" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">African Wild Dog</div>
+        <div class="species-latin">Lycaon pictus</div>
+        <div class="species-region">🌍 Sub-Saharan Africa</div>
+        <div class="species-impact">Africa's most endangered carnivore, African wild dogs are highly sensitive to habitat disturbance. Savanna fires in sub-Saharan Africa — both natural and human-set — can temporarily provide hunting advantages (open visibility post-fire) but devastating large-scale fires destroy prey populations. With only ~6,600 individuals remaining across 39 countries, any habitat disruption threatens isolated packs.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv">~6,600</div><span class="sk">Remaining in wild</span></div><div class="sp-stat"><div class="sv">39</div><span class="sk">Countries remaining</span></div><div class="sp-stat"><div class="sv">80%</div><span class="sk">Historical range lost</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#C0392B; --sc-bg:rgba(20,0,0,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Amur_Leopard_Panthera_pardus_orientalis_1.jpg/640px-Amur_Leopard_Panthera_pardus_orientalis_1.jpg" alt="Amur Leopard" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-CR">CRITICALLY ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Amur Leopard</div>
+        <div class="species-latin">Panthera pardus orientalis</div>
+        <div class="species-region">🇷🇺 Russian Far East / 🇨🇳 China</div>
+        <div class="species-impact">The world's rarest big cat — fewer than 100 individuals in the wild — is critically endangered in the Russian Far East and northeastern China, where forest fires are an increasing threat. Amur leopards require old-growth Korean pine and broad-leaved forest that takes centuries to develop. Climate-driven fire risk is increasing in this region, threatening the already critically small population.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">CR</div><span class="sk">Critically Endangered</span></div><div class="sp-stat"><div class="sv"><100</div><span class="sk">Wild individuals globally</span></div><div class="sp-stat"><div class="sv">Rarest</div><span class="sk">Large cat on Earth</span></div></div>
+      </div>
+    </div>    <div class="species-card" style="--sc-color:#27AE60; --sc-bg:rgba(0,12,5,0.5);">
+      <div class="species-image-wrap">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pygmy_elephant_%28Elephas_maximus_borneensis%29%2C_Kinabatangan.jpg/640px-Pygmy_elephant_%28Elephas_maximus_borneensis%29%2C_Kinabatangan.jpg" alt="Bornean Pygmy Elephant" loading="lazy" onerror="this.parentElement.style.background='#0A1A0A';this.style.display='none';">
+        <span class="status-badge status-EN">ENDANGERED</span>
+        <span class="img-credit">Wikimedia Commons</span>
+      </div>
+      <div class="species-body">
+        <div class="species-common">Bornean Pygmy Elephant</div>
+        <div class="species-latin">Elephas maximus borneensis</div>
+        <div class="species-region">🇲🇾 Borneo</div>
+        <div class="species-impact">The smallest elephant subspecies, confined to the northern tip of Borneo, depends on lowland rainforest that is under constant threat from fire-aided agricultural expansion. The 2015 Indonesian fires created dense haze across Borneo that affected elephant health and displaced populations. Habitat fragmentation from repeated fires isolates elephant groups, reducing genetic diversity.</div>
+        <div class="species-stats"><div class="sp-stat"><div class="sv">EN</div><span class="sk">Endangered</span></div><div class="sp-stat"><div class="sv">~1,500</div><span class="sk">Individuals remaining</span></div><div class="sp-stat"><div class="sv">Smallest</div><span class="sk">Elephant subspecies</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FIRE-SPECIES IMPACT TABLE ═══ -->
+<section class="section-mid" style="padding:60px 40px;" id="impact-table">
+  <div class="section-label">ForestSat Research · 10 Fire Events × Species Impact</div>
+  <h2 class="section-title">Major Fire Events &amp; Their Biodiversity Consequences</h2>
+  <p style="font-family:'Lora',serif;font-size:14.5px;color:var(--smoke-light);max-width:820px;line-height:1.9;margin-bottom:24px;">The following table documents the direct biodiversity consequences of 10 major wildfire events across the globe between 2015 and 2025 — with key species impacted, scale of loss, and conservation responses deployed.</p>
+
+  <table class="impact-table">
+    <thead><tr>
+      <th>Fire / Year</th><th>Region</th><th>Key Species Impacted</th><th>Scale of Biodiversity Loss</th><th>Conservation Response</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="fire-col">Black Summer 2019–20</td><td>🇦🇺 Australia</td><td class="species-col">Koala, mountain pygmy possum, eastern bristlebird, kangaroo island dunnart, corroboree frog</td><td class="impact-col">3 billion animals harmed; 144 species relisted; 20% of temperate forest lost</td><td>Zoos Victoria emergency evacuations; WWF $10M wildlife fund; 72,000 RFS volunteers</td></tr>
+      <tr><td class="fire-col">Amazon 2001–2024</td><td>🌎 Brazil / Bolivia</td><td class="species-col">Jaguar, harpy eagle, giant river otter, golden lion tamarin, 14,000 species</td><td class="impact-col">93–95% of 14,000 species affected; 10,000 km²/yr lost since 2019</td><td>IBAMA enforcement (weakened 2019–22); Lula $1B TFFF (2023); Indigenous land rights</td></tr>
+      <tr><td class="fire-col">California 2020–21</td><td>🇺🇸 USA</td><td class="species-col">California condor, giant sequoia, spotted owl, Pacific fisher, Sierra Nevada fox</td><td class="impact-col">508 vertebrates affected; 10–19% of giant sequoias killed; 100 species lost 10%+ of range</td><td>NPS sequoia wrapping; condor evacuation from nest sites; USFS wildlife corridors plan</td></tr>
+      <tr><td class="fire-col">Indonesia Peatlands 2015</td><td>🇮🇩 Indonesia</td><td class="species-col">Sumatran orangutan, pygmy elephant, sun bear, Sumatran tiger</td><td class="impact-col">2.6M ha burned; 11.3M people health-affected; Critical peat habitat destroyed</td><td>BRG peatland restoration agency established 2016; moratorium on new peatland licenses</td></tr>
+      <tr><td class="fire-col">Siberia 2021</td><td>🇷🇺 Russia</td><td class="species-col">Reindeer (Rangifer tarandus), wolverine, Siberian tiger (margins), indigenous herds</td><td class="impact-col">18.8M ha burned; record 970 Mt CO₂; lichen pastures (decades to recover) destroyed</td><td>Russian Avialesookhrana deployed; Indigenous herding communities received emergency aid</td></tr>
+      <tr><td class="fire-col">Dadia Forest 2023</td><td>🇬🇷 Greece</td><td class="species-col">Black vulture (only Balkan population), Spanish imperial eagle, white-tailed eagle</td><td class="impact-col">80,000 ha burned — entire Dadia Forest Reserve; only Balkan black vulture colony threatened</td><td>EU rescEU 1/3 fleet; Greece €1B prevention pledge; WWF raptor emergency monitoring</td></tr>
+      <tr><td class="fire-col">Evia / Greek Islands 2021</td><td>🇬🇷 Greece</td><td class="species-col">Loggerhead sea turtle (Caretta caretta), Bonelli's eagle, Mediterranean monk seal</td><td class="impact-col">50,000 ha northern Evia; coastal nesting beaches burned; autumn flash floods on denuded slopes</td><td>ARCHELON turtle rescue teams; NPS species monitoring; Zoos Greece relocation planning</td></tr>
+      <tr><td class="fire-col">Iberian Peninsula 2025</td><td>🇪🇸🇵🇹 Spain / Portugal</td><td class="species-col">Iberian lynx, Spanish imperial eagle, cork oak montado community, Iberian wolf</td><td class="impact-col">1.08M ha EU record; cork oak woodlands burned; raptor nesting habitat destroyed</td><td>EU rescEU 19 activations; Spain/Portugal prevention investigations; montado restoration funds</td></tr>
+      <tr><td class="fire-col">Fort McMurray 2016</td><td>🇨🇦 Canada</td><td class="species-col">Woodland caribou, boreal woodland salamander, wood bison</td><td class="impact-col">590,000 ha boreal forest; critical woodland caribou critical habitat burned</td><td>Alberta government emergency caribou monitoring; post-fire reforestation of boreal</td></tr>
+      <tr><td class="fire-col">Canada Season 2023</td><td>🇨🇦 Canada</td><td class="species-col">Woodland caribou, boreal songbirds, migratory waterfowl, moose</td><td class="impact-col">18M ha — largest in recorded history; smoke affected 354M people; boreal habitat catastrophic</td><td>International aid from 14 countries; caribou range emergency assessment; wetland protection</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--smoke-gray);margin-top:8px;">Sources: WWF; IUCN Red List; EPBC Act; PNAS (Ayars et al. 2023); Nature (Enquist et al. 2021); Zoos Victoria (2021); NASA; EFFIS; CAMS/ECMWF; NPS; National Geographic; Mongabay; Phys.org; Wikipedia.</p>
+</section>
+
+<!-- ═══ CALLOUT ROW ═══ -->
+<section class="section-forest" style="padding:60px 40px;">
+  <div class="section-label">ForestSat Research · The Future Trajectory</div>
+  <h2 class="section-title">What Comes Next: The 2025 Nature Climate Change Forecast</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-top:24px;">
+    <div class="callout">
+      <span class="stat">83.9% of Species</span>
+      <p>The percentage of wildfire-vulnerable species that will face higher fire risk under a 2°C warming scenario (SSP2-4.5), according to a landmark 2025 study in <em>Nature Climate Change</em>. The study found global burned area will increase by 9.3% and that ~40% of South American species will experience more than 50% increases in fire exposure. (Ruffault et al., Nature Climate Change, March 2025)</p>
+    </div>
+    <div class="callout">
+      <span class="stat">High-Latitude Doubling</span>
+      <p>Fire season duration in high-latitude regions — boreal Canada, Siberia, Alaska — is projected to more than double under climate change. Species like wolverine, caribou, woodland caribou, and boreal forest songbirds face compounding threats from warming, permafrost thaw, and fire season extension. These are the ecosystems where fire activity is already accelerating fastest. (Ruffault et al., 2025; CAMS data 2021–2025)</p>
+    </div>
+    <div class="callout">
+      <span class="stat">Tipping Point: 20–25%</span>
+      <p>Scientists predict the Amazon's evapotranspiration system breaks down once 20–25% of the Amazon has been deforested — triggering a self-reinforcing conversion from rainforest to savanna. The Amazon is already approaching this threshold. This "tipping point" would represent an extinction-level event for thousands of Amazonian species and would permanently alter global climate. (Lovejoy &amp; Nobre, 2018; Rainforest Foundation US, 2025)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(39,174,96,0.2);">
+      <!-- <div style="width:40px;height:40px;background:linear-gradient(135deg,#27AE60,#1A6B3C);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🌿</div> -->
+      <div>
+        <div class="footer-brand"><span class="logo"><img src="img/logo.png"></span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--smoke-gray);">Wildlife &amp; Biodiversity Research · <a href="https://forestsat.space" target="_blank" style="color:#6FCF97;">forestsat.space</a></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px;">
+      <button onclick="openOverlay('extinction_risk')" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--smoke-gray);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;background:transparent;cursor:pointer;">💀 Extinction Risk</button>
+      <button onclick="openOverlay('australia_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--smoke-gray);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;background:transparent;cursor:pointer;">🐨 Australia</button>
+      <button onclick="openOverlay('amazon_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--smoke-gray);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;background:transparent;cursor:pointer;">🦜 Amazon</button>
+      <button onclick="openOverlay('california_bio')" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--smoke-gray);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;background:transparent;cursor:pointer;">🦅 California</button>
+      <button onclick="openOverlay('global_flora')" style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--smoke-gray);padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;background:transparent;cursor:pointer;">🌿 Flora</button>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1px;color:var(--smoke-gray);text-align:center;line-height:1.9;">WILDFIRE WILDLIFE &amp; BIODIVERSITY RESEARCH 2015–2025 &nbsp;·&nbsp; A ForestSat Research Initiative &nbsp;·&nbsp; <a href="https://forestsat.space" target="_blank" style="color:#6FCF97;">forestsat.space</a><br>Compiled from: WWF · IUCN Red List · PNAS (Ayars et al. 2023) · Nature Climate Change (Ruffault et al. 2025) · Nature (Enquist et al. 2021) · Zoos Victoria (PMC 2021) · Mongabay · Earth.org · EPBC Act · NASA · NPS · USFS · EFFIS/JRC · CAMS/ECMWF · National Geographic · CNN · University of Sydney · Purdue University · University of Arizona · Amazon Frontlines · IFAW · IWGIA · IPBES Global Assessment (2019)</p>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;color:rgba(138,134,128,0.5);text-align:center;margin-top:10px;">Species images from Wikimedia Commons (CC-BY-SA / public domain). All population figures from IUCN Red List or cited research. Full citations in each research article overlay.</p>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPT ═══ -->
+<script>
+
+const ARTICLES = {
+  extinction_risk: { icon:'💀', label:'How Wildfire Drives Species to Extinction',
+    body:`<div class="ov-hero"><h1>💀 How Wildfire Drives Species to Extinction</h1><p>The mechanisms by which wildfire pushes species toward extinction — from direct mortality to habitat fragmentation, breeding failure, and cascading ecosystem collapse.</p></div>
+    <article class="article-body">
+    <h2>Overview</h2>
+    <p>More than 4,400 vertebrate species globally are at risk from extinction because of changes in fire activity, according to research published in PNAS (2023). A landmark 2025 study in Nature Climate Change found that 9,592 non-marine species face substantially increased wildfire exposure under climate change — with 83.9% of wildfire-vulnerable species expected to face higher risk. The mechanisms by which wildfire causes extinction are multiple, interacting, and often delayed: species may survive the initial fire but die from starvation weeks later, fail to breed for multiple seasons, or find their previously connected range fragmented into isolated patches too small to sustain viable populations.<sup>[1]</sup></p>
+    <div class="callout"><span class="stat">4,400+ Species</span><p>Vertebrate species globally at risk from extinction due to changes in fire activity — a figure from peer-reviewed research published in PNAS (2023). A companion 2025 Nature Climate Change study raised this to 9,592 non-marine species facing substantially increased future wildfire exposure, with species having small ranges and high conservation concern facing the greatest risk. (Ayars et al., PNAS 2023; Ruffault et al., Nature Climate Change 2025)</p></div>
+    <h2>Mechanisms of Extinction Risk</h2>
+    <p><strong>Direct mortality:</strong> Animals killed during fire events, particularly slow-moving species (sloths, echidnas, koalas), ground-nesting birds, reptiles, and small mammals. Australia's Black Summer killed an estimated 3 billion individual animals across 24 million hectares.</p>
+    <p><strong>Habitat loss:</strong> The destruction of the specific forest structure a species requires. The giant sequoia (Sequoiadendron giganteum) requires specific soil conditions and forest understory created by centuries of low-intensity fire — high-severity megafires kill the trees themselves. Between 10–19% of all giant sequoias on Earth were killed by the 2021 KNP Complex and Windy Fire.</p>
+    <p><strong>Fragmentation:</strong> Fire creates barriers within formerly connected ranges. Species already restricted to small areas — like the mountain pygmy possum in Victoria's alpine zone — cannot recolonise burned patches if unburned corridors don't exist.</p>
+    <p><strong>Cascading food chain collapse:</strong> When fire destroys prey species or food plants, predators and specialized feeders starve. California condors lost large mammal carcasses; Amazon frugivores (fruit-eating primates, toucans) lost their food trees; giant otters lost fish populations affected by ash runoff.</p>
+    <p><strong>Compounding stressors:</strong> Species already weakened by drought, disease, or habitat loss face fire with reduced resilience. The koala, already in decline from chlamydia and habitat loss, was devastated by Black Summer. The critically endangered mountain pygmy possum, restricted to ski resort areas in Victoria, lost the snow cover it depends on for winter dormancy and then faced fire.<sup>[2]</sup></p>
+    <div class="bibliography"><h2>References</h2>
+    <div class="bib-entry"><span class="bib-num">[1]</span><span>Ayars, J., Kramer, H.A., Jones, G.M. (2023). "The 2020 to 2021 California megafires and their impacts on wildlife habitat." <em>PNAS,</em> 120(49). DOI: 10.1073/pnas.2312909120. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10691208/">https://pmc.ncbi.nlm.nih.gov</a></span></div>
+    <div class="bib-entry"><span class="bib-num">[2]</span><span>Ward, M. et al. (2020). Scientists urge reassessment of threatened species after Australian bushfires. Mongabay. Citing EPBC Act data. <a href="https://news.mongabay.com/2020/08/scientists-urge-reassessment-of-threatened-species-after-australian-bushfires/">https://news.mongabay.com</a></span></div>
+    </div></article>` },
+
+  australia_bio: { icon:'🐨', label:'Australia: 3 Billion Animals & the Black Summer',
+    body:`<div class="ov-hero"><h1>🐨 Australia: 3 Billion Animals &amp; the Black Summer</h1><p>The unprecedented ecological catastrophe of Australia's 2019–20 fire season — the largest wildlife mortality event in recorded natural history.</p></div>
+    <article class="article-body">
+    <h2>Overview</h2>
+    <p>The Black Summer fires of 2019–20 produced the largest single wildlife mortality event in recorded natural history. The fires burned 24.3 million hectares — an area larger than the United Kingdom — across all Australian states and territories. WWF's final report, incorporating research from 10 scientists studying more than 28 million acres, estimated that approximately 3 billion individual animals were harmed or killed: 143 million mammals, 2.46 billion reptiles, 180 million birds, and 51 million frogs. These figures do not include aquatic species, invertebrates, or insects. The actual toll is higher.<sup>[1]</sup></p>
+    <div class="callout"><span class="stat">3 Billion Animals</span><p>Individual native animals harmed or killed by Australia's Black Summer fires, according to WWF research compiled by a team of 10 scientists. The breakdown: 143 million mammals, 2.46 billion reptiles, 180 million birds, 51 million frogs — plus unknown billions of insects, invertebrates, and fish not included in the count. (WWF, 2020; Dickman, University of Sydney)</p></div>
+    <h2>Species Under Existential Threat</h2>
+    <p>The Australian Government's EPBC Act listed 202 faunal species as threatened, 164 as endangered, and 89 as critically endangered before the fires. Ecologists feared that some species were pushed to extinction without our knowledge. Specific emergency listings added post-Black Summer included: the long-footed potoroo, the regent honeyeater, the koala (relisted as Endangered in NSW and Queensland), the southern corroboree frog, the Kangaroo Island dunnart, and multiple orchid and plant species. Australia's Earth.org reported 144 new species added to the threatened list in one year following Black Summer — directly impacted by the fires.<sup>[2]</sup></p>
+    <h2>The Emergency Response</h2>
+    <p>Zoos Victoria deployed emergency teams to the frontlines, including: triage and care of injured koalas; emergency evacuation of breeding populations of endangered eastern bristlebirds and brush-tailed rock wallabies to off-site captive facilities; and specially formulated supplementary food for critically endangered mountain pygmy-possums. This unprecedented zoo-based conservation emergency response revealed both the vulnerability of Australia's wildlife and the capacity of coordinated institutional responses to save critically small populations.<sup>[3]</sup></p>
+    <div class="bibliography"><h2>References</h2>
+    <div class="bib-entry"><span class="bib-num">[1]</span><span>WWF Australia. (2020). "3 Billion Animals Harmed by Australia's Fires." <a href="https://www.worldwildlife.org/news/stories/3-billion-animals-harmed-by-australias-fires/">https://www.worldwildlife.org</a>. Prof. Chris Dickman, University of Sydney.</span></div>
+    <div class="bib-entry"><span class="bib-num">[2]</span><span>Earth.org. (January 2024). "Australia Says 144 New Species Are Threatened with Extinction." Citing EPBC Act listings. <a href="https://earth.org/australia-added-record-number-of-wildlife-to-list-of-threatened-species-in-2023/">https://earth.org</a></span></div>
+    <div class="bib-entry"><span class="bib-num">[3]</span><span>Zoos Victoria et al. (2021). "Emergency Response to Australia's Black Summer 2019–2020: The Role of a Zoo-Based Conservation Organisation." PMC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8224790/">https://pmc.ncbi.nlm.nih.gov</a></span></div>
+    </div></article>` },
+
+  amazon_bio: { icon:'🦜', label:'Amazon: Fire-Naïve Forest & the 95% Impacted Species',
+    body:`<div class="ov-hero"><h1>🦜 Amazon: Fire-Naïve Forest &amp; 95% Impacted Species</h1><p>Why Amazon rainforest fires are uniquely devastating to biodiversity — and how 93–95% of the rainforest's 14,000 documented species have already been affected by fire.</p></div>
+    <article class="article-body">
+    <h2>Overview</h2>
+    <p>The Amazon rainforest is described by scientists as "fire-naïve" — meaning its organisms did not evolve with fire and have no adaptations to survive it. Unlike California pine forests, Australian eucalyptus woodland, or African savanna — all of which have fire-adapted species — rainforest species are exceptionally vulnerable. A study published in Nature found that 93–95% of 14,000 Amazonian plant and animal species have already suffered some consequence of fires between 2001 and 2019. "If nothing changes, we will see continued habitat degradation for most Amazonian species," warned the study's lead researcher.<sup>[1]</sup></p>
+    <div class="callout"><span class="stat">93–95%</span><p>The percentage of 14,000 documented Amazonian plant and animal species that had already suffered some consequence from fires, according to a study published in Nature assessing two decades (2001–2019) of Amazon fire data. Primates were the most affected group. Species with small, restricted ranges suffered the strongest impacts — and are at highest extinction risk. (Enquist et al., Nature, 2021)</p></div>
+    <h2>Why the Amazon Burns Differently</h2>
+    <p>"Fire is not a part of the natural cycle in the rainforest," said Dr. Crystal McMichael of the University of Amsterdam. "Native species lack the adaptations that would allow them to cope with it." An intact Amazon retains moisture and is unlikely to catch fire. Deforestation dries the remaining forest — creating a vicious cycle where each cleared hectare increases fire susceptibility of adjacent forest. Once fire has entered previously unburned primary forest, it changes its structure permanently — converting it toward dry, open, savanna-type vegetation.<sup>[2]</sup></p>
+    <h2>Species at Greatest Risk</h2>
+    <p>Primates — which depend on trees for movement, food, and shelter — were the most affected group in the Nature study. Milton's titi monkey, discovered only in 2011, had its entire documented range in the deforestation arc. Giant river otters lose fish populations affected by fire-driven ash runoff. Jaguars — already losing territory to agricultural expansion — face additional prey loss. Harpy eagles, which require enormous tracts of undisturbed primary forest for nesting territories, face territory fragmentation. At least 137 species may be going extinct globally every day from habitat destruction in the Amazon alone, according to one estimate.<sup>[3]</sup></p>
+    <div class="bibliography"><h2>References</h2>
+    <div class="bib-entry"><span class="bib-num">[1]</span><span>Enquist et al. (2021). "How deregulation, drought and increasing fire impact Amazonian biodiversity." <em>Nature.</em> Reported by Mongabay (September 2021). <a href="https://news.mongabay.com/2021/09/fires-in-the-amazon-have-already-impacted-more-than-90-of-animal-and-plant-species-in-the-biome/">https://news.mongabay.com</a></span></div>
+    <div class="bib-entry"><span class="bib-num">[2]</span><span>McMichael, C.N.H. Cited in: University of Arizona News. "Study Shows Impacts of Deforestation and Forest Burning on Amazon Biodiversity." <a href="https://news.arizona.edu/news/study-shows-impacts-deforestation-and-forest-burning-amazon-biodiversity">https://news.arizona.edu</a></span></div>
+    <div class="bib-entry"><span class="bib-num">[3]</span><span>National Geographic. (August 2019). "What the Amazon fires mean for wild animals." <a href="https://www.nationalgeographic.com/animals/article/how-the-amazon-rainforest-wildfires-will-affect-wild-animals">https://www.nationalgeographic.com</a>. See also: CNN (August 2019). Amazon wildlife threats.</span></div>
+    </div></article>` },
+
+  california_bio: { icon:'🦅', label:'California Megafires: 100 Species, 10–30% of Range Burned',
+    body:`<div class="ov-hero"><h1>🦅 California Megafires: 100 Species, 10–30% Range Burned</h1><p>How the 2020–2021 California megafire seasons affected 508 vertebrate species — including devastating habitat loss for 100 species of conservation concern.</p></div>
+    <article class="article-body">
+    <h2>Overview</h2>
+    <p>The 2020–2021 California fire seasons burned 10× more forest than the historical average, potentially affecting the habitat of 508 vertebrate species. Research published in PNAS (2023) found that 100 vertebrate species experienced fire across more than 10% of their geographic range, and 16 of those were species of conservation concern. High-severity fire — the kind that kills trees and eliminates wildlife habitat rather than restoring it — burned 89% of the total burned area, in large patches exceeding historical maximum sizes. "Species in this region are not adapted to high-severity megafires," the authors concluded.<sup>[1]</sup></p>
+    <div class="callout"><span class="stat">508 Vertebrate Species</span><p>The number of California vertebrate species potentially affected by the 2020–2021 megafire seasons, in which 10× the historical average area of forest burned. Of these, 100 species lost more than 10% of their entire geographic range to fire in just two years — and 16 were species of conservation concern already facing extinction pressure. (Ayars, Kramer, Jones; PNAS, 2023)</p></div>
+    <h2>The Giant Sequoia Crisis</h2>
+    <p>The 2021 KNP Complex and Windy Fire together killed between 10–19% of all giant sequoias (<em>Sequoiadendron giganteum</em>) on Earth. Giant sequoias are the world's largest trees by volume, some over 3,000 years old. They normally survive fire — their thick bark is fire-resistant — but the unprecedented severity of megafires, driven by accumulated fuel loads from fire suppression, created conditions that killed even ancient specimens. The NPS deployed helicopters using Bambi buckets to make targeted water drops on individual ancient trees, and wrapped sequoias in fire-resistant foil blankets — a conservation triage without precedent.</p>
+    <h2>The California Condor</h2>
+    <p>The California condor (<em>Gymnogyps californianus</em>) reached a population nadir of just 22 individuals in 1982 — all captured for captive breeding. The species has recovered to approximately 560 individuals (2022) through one of the most intensive conservation programmes in history. Wildfires directly destroy nesting sites (old-growth trees and rock cavities), reduce availability of large mammal carcasses (condors' food source), and expose condors to toxic lead ammunition in deer carcasses during hunts. The 2020 fire season impacted nesting sites. Climate-driven megafires represent a new and growing threat to a species that has barely escaped extinction once.<sup>[2]</sup></p>
+    <div class="bibliography"><h2>References</h2>
+    <div class="bib-entry"><span class="bib-num">[1]</span><span>Ayars, J., Kramer, H.A., Jones, G.M. (2023). PNAS, 120(49). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10691208/">https://pmc.ncbi.nlm.nih.gov</a>. See also: USFS Research &amp; Development. (2023). "How two record-shattering years of megafires in California affected wildlife habitat." <a href="https://research.fs.usda.gov/rmrs/articles/how-two-record-shattering-years-megafires-california-affected-wildlife-habitat">https://research.fs.usda.gov</a></span></div>
+    <div class="bib-entry"><span class="bib-num">[2]</span><span>The Scientific Teen. (2023). "Wildlife At Risk: Animals Affected By Forest Fires." California condor section. <a href="https://www.thescientificteen.org/post/wildlife-at-risk-animals-affected-by-forest-fires">https://www.thescientificteen.org</a></span></div>
+    </div></article>` },
+
+  global_flora: { icon:'🌿', label:'Flora, Ancient Trees &amp; Plant Extinction',
+    body:`<div class="ov-hero"><h1>🌿 Flora, Ancient Trees &amp; Plant Extinction</h1><p>How wildfire threatens ancient trees, endemic plant communities, cork oak woodland, Posidonia seagrass, and the plant foundations of entire ecosystems.</p></div>
+    <article class="article-body">
+    <h2>Overview</h2>
+    <p>Plant species — the foundation of every terrestrial ecosystem — face wildfire as both a natural disturbance and an accelerating extinction threat. For fire-adapted species, historical fire regimes were part of their evolutionary environment. For fire-naïve species in tropical rainforests, Mediterranean woodlands, or island ecosystems, unprecedented megafires destroy plant communities that evolved over millions of years without fire. Among the most striking losses: cork oak woodlands of Portugal and Spain (some trees over 200 years old), ancient giant sequoias (up to 3,000 years old), Mediterranean endemic orchids, Canarian endemic pine forest, and the laurisilva cloud forests of the Atlantic islands — the last remnants of the subtropical forest that covered Europe before the last Ice Age.<sup>[1]</sup></p>
+    <div class="callout"><span class="stat">3,000 Years Old — and Still Burning</span><p>Giant sequoias (<em>Sequoiadendron giganteum</em>) can live 3,000 years and normally survive fire. The 2021 KNP Complex and Windy Fire killed 10–19% of ALL giant sequoias on Earth in a single fire season — because megafire severity exceeded the trees' fire tolerance that evolved over millennia of low-intensity fire. This illustrates the "ecological ratchet" of climate-driven megafires destroying adaptations that took millions of years to evolve.</p></div>
+    <h2>Cork Oak: An Ecosystem Foundation Under Fire</h2>
+    <p>Portugal's montado and Spain's dehesa — cork oak (<em>Quercus suber</em>) woodland — are among the most biodiverse terrestrial habitats in Europe, supporting 200+ bird species and the Iberian lynx, Iberian wolf, and Spanish imperial eagle. Cork oak has naturally fire-resistant bark that historically allowed survival of low-intensity fires. But the high-severity megafires of the current era kill even mature specimens. A tree that takes 25 years to reach first harvest and 200 years to reach full ecological maturity cannot be simply replanted after fire.</p>
+    <h2>Posidonia and Marine Plant Communities</h2>
+    <p>The Mediterranean Sea's most important marine ecosystem — Posidonia oceanica seagrass — faces indirect but severe damage from coastal wildfires through ash and nutrient runoff. Posidonia grows at 1–7 cm per year, can live for thousands of years, and supports entire fish nursery ecosystems. Post-fire runoff can damage meadows requiring centuries to recover. When the 2018 Mati fire reached the Greek coastline, burning debris entered the Aegean Sea directly.<sup>[2]</sup></p>
+    <div class="bibliography"><h2>References</h2>
+    <div class="bib-entry"><span class="bib-num">[1]</span><span>Myers, N. et al. (2000). "Biodiversity hotspots for conservation priorities." Nature, 403. WWF Mediterranean (2022). Cork Oak Woodlands. USFS/NPS KNP Complex reports.</span></div>
+    <div class="bib-entry"><span class="bib-num">[2]</span><span>EEA Climate-Adapt Observatory. (2024). Mediterranean marine ecosystems. Wikipedia: 2018 Attica Wildfires — marine impact section.</span></div>
+    </div></article>` }
+};
+
+
+// ── OVERLAY ──
+const OV_ORDER = ['extinction_risk','australia_bio','amazon_bio','california_bio','global_flora'];
+let currentOvKey = null;
+function openOverlay(key) {
+  const data = ARTICLES[key]; if(!data) return;
+  currentOvKey = key;
+  document.getElementById('ov-content').innerHTML = data.body;
+  document.getElementById('ov-current-title').innerHTML = data.icon + ' ' + data.label;
+  const panel = document.getElementById('article-panel');
+  panel.classList.add('open'); panel.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  document.querySelectorAll('.ov-tab').forEach(function(t){ t.classList.toggle('cur', t.dataset.key===key); });
+}
+function navOverlay(dir) {
+  if(!currentOvKey) return;
+  const idx = OV_ORDER.indexOf(currentOvKey);
+  openOverlay(OV_ORDER[(idx+dir+OV_ORDER.length)%OV_ORDER.length]);
+  document.getElementById('article-panel').scrollTop = 0;
+}
+function closeOverlay() {
+  document.getElementById('article-panel').classList.remove('open');
+  document.body.style.overflow = ''; currentOvKey = null;
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeOverlay();
+  if(e.key==='ArrowRight' && currentOvKey) navOverlay(1);
+  if(e.key==='ArrowLeft' && currentOvKey) navOverlay(-1);
+});
+
+// ── SPECIES FILTER ──
+function filterSpecies(status, el) {
+  document.querySelectorAll('.species-card').forEach(function(card) {
+    if(status === 'all') { card.style.display = ''; return; }
+    const badge = card.querySelector('.status-badge');
+    const show = badge && badge.classList.contains('status-' + status);
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+// ── NAV ──
+function scrollToSection(id) {
+  closeOverlay();
+  const el = document.getElementById(id);
+  if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({top,behavior:'smooth'}); }
+}
+function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+document.addEventListener('click',function(e){
+  const m=document.getElementById('mobileMenu'), h=document.querySelector('.fs-hamburger');
+  if(m && m.classList.contains('open') && !m.contains(e.target) && h && !h.contains(e.target)) m.classList.remove('open');
+});
+window.addEventListener('scroll',function(){
+  document.getElementById('backToTop').classList.toggle('visible',window.scrollY>500);
+});
+window.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.hero-stat .num').forEach(function(el,i){
+    el.style.opacity='0'; el.style.transform='translateY(10px)';
+    setTimeout(function(){ el.style.transition='all 0.5s ease'; el.style.opacity='1'; el.style.transform='translateY(0)'; },300+i*120);
+  });
+});
+</script>
+
+<!-- ═══ OVERLAY PANEL ═══ -->
+<div class="article-overlay" id="article-panel">
+  <div class="ov-topbar">
+    <div class="ov-brand"><div class="ov-logo">🌿</div><span class="ov-brand-name">ForestSat</span></div>
+    <div class="ov-title" id="ov-current-title">Article</div>
+    <div class="ov-btns">
+      <button class="ov-btn" onclick="navOverlay(-1)">&#8592; Prev</button>
+      <button class="ov-btn" onclick="navOverlay(1)">Next &#8594;</button>
+      <button class="ov-btn home" onclick="closeOverlay()">🏠 Home</button>
+      <button class="ov-btn" onclick="closeOverlay()">&#10005; Close</button>
+    </div>
+  </div>
+  <div class="ov-body" id="ov-content"></div>
+  <div class="ov-tabstrip">
+    <button class="ov-tab" data-key="extinction_risk" onclick="openOverlay('extinction_risk')">💀 Extinction Risk</button>
+    <button class="ov-tab" data-key="australia_bio" onclick="openOverlay('australia_bio')">🐨 Australia</button>
+    <button class="ov-tab" data-key="amazon_bio" onclick="openOverlay('amazon_bio')">🦜 Amazon</button>
+    <button class="ov-tab" data-key="california_bio" onclick="openOverlay('california_bio')">🦅 California</button>
+    <button class="ov-tab" data-key="global_flora" onclick="openOverlay('global_flora')">🌿 Flora</button>
+  </div>
+</div>
+
+</body>
+</html>

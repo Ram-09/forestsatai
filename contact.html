@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | ForestSat — Wildfire Risk Mitigation Platform</title>
+<link rel="icon" href="img/favicon.png" />
+<meta name="description" content="ForestSat: Satellite EO + AI wildfire risk prediction, prevention, monitoring, response and recovery. The operating system for wildfire prevention.">
+<link rel="stylesheet" href="forestsat.css">
+
+</head>
+<body>
+
+<nav class="fs-nav" role="navigation">
+<a href="https://forestsatai.com" class="nav-brand">
+     <span class="logo"><img src="img/logo.png"></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://forestsatai.com">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="clients.html">Clients</a></li>
+    <li><a href="resources.html">Research</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Request Demo →</a></li>
+  </ul>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="https://forestsatai.com">Home</a>
+  <a href="products.html">Products</a>
+  <a href="clients.html">Clients</a>
+  <a href="resources.html">Research</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Request Demo →</a>
+</div>
+
+
+<div class="pt-top"></div>
+<section class="section bg-mid">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h1 class="section-title">Let's Protect Forests Together</h1>
+    <p class="section-sub">Whether you're a government agency, utility, insurer, or conservation body — tell us about your challenge and we'll match you with the right ForestSat solution and a pilot proposal.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="gap:64px;align-items:start;">
+
+      <!-- FORM -->
+      <div>
+        <h2 style="font-size:26px;margin-bottom:24px;">Request a Demo or Pilot</h2>
+        <form class="contact-form" id="contactForm" novalidate>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="fname" placeholder="Jane" required>
+      <small class="error"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lname" placeholder="Smith" required>
+      <small class="error"></small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" id="mobile" name="mobile" placeholder="9876543210" required>
+    <small class="error"></small>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Work Email</label>
+    <input type="email" id="email" name="email" placeholder="jane@agency.gov" required>
+    <small class="error"></small>
+  </div>
+
+  <div class="form-group">
+    <label for="org">Organisation</label>
+    <input type="text" id="org" name="org" placeholder="Your agency, company or institution" required>
+    <small class="error"></small>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="segment">Organisation Type</label>
+      <select id="segment" name="segment" required>
+        <option value="">Select...</option>
+        <option value="government">Government / Fire Agency</option>
+        <option value="utility">Electric Utility</option>
+        <option value="insurer">Insurer / Reinsurer</option>
+        <option value="conservation">Conservation / NGO</option>
+        <option value="climate">Climate Finance / ESG</option>
+        <option value="landowner">Large Landowner / Agriculture</option>
+        <option value="technology">Technology / Cloud Partner</option>
+        <option value="research">Research / Academia</option>
+        <option value="other">Other</option>
+      </select>
+      <small class="error"></small>
+    </div>
+
+    <div class="form-group">
+      <label for="product">Primary Interest</label>
+      <select id="product" name="product" required>
+        <option value="">Select...</option>
+        <option value="insight">Wildfire Insight™ (Predict)</option>
+        <option value="guardian">Wildfire Guardian™ (Prevent)</option>
+        <option value="mvr">MVR™ (Verify)</option>
+        <option value="response">Wildfire Response™ (Respond)</option>
+        <option value="recovery">Wildfire Recovery™ (Recover)</option>
+        <option value="full">Full Platform</option>
+        <option value="research">Research Library</option>
+      </select>
+      <small class="error"></small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="geography">Geography / Region of Interest</label>
+    <input type="text" id="geography" name="geography"
+      placeholder="e.g. Los Angeles County, Sonoma County, Mediterranean Spain, India..." required>
+    <small class="error"></small>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Tell Us About Your Challenge</label>
+    <textarea id="message" name="message"
+      placeholder="Describe your current wildfire management challenge..." rows="5" required></textarea>
+    <small class="error"></small>
+  </div>
+
+  <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+    Send Request →
+  </button>
+</form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div>
+      <!--   <h2 style="font-size:26px;margin-bottom:24px;">Direct Contact</h2>
+        <div class="card" style="margin-bottom:20px;border-left:4px solid var(--green);">
+          <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Founder &amp; CEO</div>
+          <div style="font-size:18px;font-weight:600;color:var(--white);margin-bottom:6px;">Ajay Goyal</div>
+          <div style="font-size:14px;color:var(--silver);margin-bottom:10px;">ForestSat — forestsat.space</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="mailto:ajay@forestsat.space" style="font-family:var(--font-mono);font-size:14px;color:var(--green);">📧 ajay@forestsat.space</a>
+            <a href="tel:+19085975881" style="font-family:var(--font-mono);font-size:14px;color:var(--green);">📱 +1 908 597 5881 (WhatsApp)</a>
+            <a href="https://forestsat.space" target="_blank" style="font-family:var(--font-mono);font-size:14px;color:var(--green);">🌐 forestsat.space</a>
+          </div>
+        </div>
+
+        <h3 style="font-size:18px;margin-bottom:16px;margin-top:28px;">What Happens Next</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div class="card" style="padding:14px;border-left:3px solid var(--green);display:flex;gap:14px;">
+            <span style="font-family:var(--font-mono);font-size:18px;color:var(--green);font-weight:600;flex-shrink:0;">01</span>
+            <div><strong style="color:var(--paper);font-size:14px;">Response within 24 hours</strong><p style="font-size:13px;color:var(--silver);margin-top:4px;">We review your inquiry and reach out to schedule an initial call.</p></div>
+          </div>
+          <div class="card" style="padding:14px;border-left:3px solid var(--green);display:flex;gap:14px;">
+            <span style="font-family:var(--font-mono);font-size:18px;color:var(--green);font-weight:600;flex-shrink:0;">02</span>
+            <div><strong style="color:var(--paper);font-size:14px;">Discovery call (45 min)</strong><p style="font-size:13px;color:var(--silver);margin-top:4px;">Understand your geography, workflows, and priorities. Identify the right product combination.</p></div>
+          </div>
+          <div class="card" style="padding:14px;border-left:3px solid var(--amber);display:flex;gap:14px;">
+            <span style="font-family:var(--font-mono);font-size:18px;color:var(--amber);font-weight:600;flex-shrink:0;">03</span>
+            <div><strong style="color:var(--paper);font-size:14px;">Live demo with your data</strong><p style="font-size:13px;color:var(--silver);margin-top:4px;">A live demonstration using real satellite data from your region. See your landscape's fire risk map.</p></div>
+          </div>
+          <div class="card" style="padding:14px;border-left:3px solid var(--amber);display:flex;gap:14px;">
+            <span style="font-family:var(--font-mono);font-size:18px;color:var(--amber);font-weight:600;flex-shrink:0;">04</span>
+            <div><strong style="color:var(--paper);font-size:14px;">Pilot proposal</strong><p style="font-size:13px;color:var(--silver);margin-top:4px;">A tailored pilot proposal with scope, pricing, timeline and expected outcomes. No obligation.</p></div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px;">
+          <h3 style="font-size:16px;margin-bottom:12px;">First Q2–Q3 2026 Pilots</h3>
+          <p style="font-size:14px;color:var(--silver);line-height:1.7;">Priority geographies for initial pilots: Los Angeles County, Sonoma County, Butte County (California) · Mediterranean Spain/Portugal · Australia NSW/VIC · India Uttarakhand/Odisha. Limited pilot slots available — contact us now to secure your place.</p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="fs-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-brand" style="font-size:20px;">
+      <span class="logo"><img src="img/logo.png"></span>
+      </div>
+      <p>The operating system for wildfire prevention. Satellite EO + AI + Forest Science + Cloud SaaS — integrated into the world's first full-lifecycle wildfire intelligence platform.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <span class="badge badge-green">AWS Space Challenge Winner</span>
+        <span class="badge badge-teal">NVIDIA Inception</span>
+        <span class="badge badge-amber">EU Fire-Res Alumnus</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Products</h4>
+      <ul>
+        <li><a href="products.html#insight">Wildfire Insight™</a></li>
+        <li><a href="products.html#guardian">Wildfire Guardian™</a></li>
+        <li><a href="products.html#mvr">MVR™</a></li>
+        <li><a href="products.html#response">Wildfire Response™</a></li>
+        <li><a href="products.html#recovery">Wildfire Recovery™</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="resources.html#risk">Risk Forecast 2025–2100</a></li>
+        <li><a href="resources.html#insurance">Wildfire Insurance</a></li>
+        <li><a href="resources.html#suppression">Suppression Costs</a></li>
+        <li><a href="resources.html#wildlife">Wildlife & Biodiversity</a></li>
+        <li><a href="resources.html#us">US Wildfires</a></li>
+        <li><a href="resources.html#mediterranean">Mediterranean Fires</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About ForestSat</a></li>
+        <li><a href="about.html#team">Team &amp; Credentials</a></li>
+        <li><a href="about.html#books">Megawildfires Series</a></li>
+        <li><a href="competitive-landscape.html">Competitive Landscape</a></li>
+        <li><a href="clients.html">Client Solutions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Request Demo</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ForestSat · forestsat.space · All research compiled from public sources</span>
+    <!-- <span>Ajay Goyal · ajay@forestsat.space · +1 908 597 5881</span> -->
+  </div>
+</footer>
+
+<script src="forestsat.js"></script>
+</body>
+
+
+<style>
+  .error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+  }
+
+  input.error-border,
+  select.error-border,
+  textarea.error-border {
+    border: 1px solid red;
+  }
+
+  input.success-border,
+  select.success-border,
+  textarea.success-border {
+    border: 1px solid green;
+  }
+</style>
+
+ 
+
+
+
+<script>
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // Form fields
+    const fname = document.getElementById("fname");
+    const lname = document.getElementById("lname");
+    const mobile = document.getElementById("mobile");
+    const email = document.getElementById("email");
+    const org = document.getElementById("org");
+    const segment = document.getElementById("segment");
+    const product = document.getElementById("product");
+    const geography = document.getElementById("geography");
+    const message = document.getElementById("message");
+
+    // Remove old errors
+    document.querySelectorAll(".error").forEach((el) => {
+      el.textContent = "";
+    });
+
+    document
+      .querySelectorAll("input, select, textarea")
+      .forEach((el) => {
+        el.classList.remove("error-border", "success-border");
+      });
+
+    // Validation function
+    function validateField(field, errorMessage) {
+      const errorEl =
+        field.parentElement.querySelector(".error");
+
+      if (!field.value.trim()) {
+        errorEl.textContent = errorMessage;
+        field.classList.add("error-border");
+        isValid = false;
+      } else {
+        field.classList.add("success-border");
+      }
+    }
+
+    // Required validation
+    validateField(fname, "First name is required");
+    validateField(lname, "Last name is required");
+    validateField(mobile, "Mobile number is required");
+    validateField(email, "Email is required");
+    validateField(org, "Organisation is required");
+    validateField(segment, "Please select organisation type");
+    validateField(product, "Please select primary interest");
+    validateField(geography, "Geography is required");
+    validateField(message, "Message is required");
+
+    // Email validation
+    const emailPattern =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (
+      email.value.trim() &&
+      !emailPattern.test(email.value.trim())
+    ) {
+      email.parentElement.querySelector(".error").textContent =
+        "Enter a valid email address";
+
+      email.classList.remove("success-border");
+      email.classList.add("error-border");
+
+      isValid = false;
+    }
+
+    // Mobile validation
+    const mobilePattern = /^[0-9]{10}$/;
+
+    if (
+      mobile.value.trim() &&
+      !mobilePattern.test(mobile.value.trim())
+    ) {
+      mobile.parentElement.querySelector(".error").textContent =
+        "Mobile number must be 10 digits";
+
+      mobile.classList.remove("success-border");
+      mobile.classList.add("error-border");
+
+      isValid = false;
+    }
+
+    // Stop if invalid
+    if (!isValid) {
+      return;
+    }
+
+    // Disable button during submit
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Sending...";
+
+    // Send form
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("send-mail.php", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.text();
+
+      if (result.trim() === "success") {
+        alert("Email sent successfully!");
+
+        form.reset();
+
+        document
+          .querySelectorAll("input, select, textarea")
+          .forEach((el) => {
+            el.classList.remove("success-border");
+          });
+
+      } else {
+        alert("Email sending failed!");
+        console.log(result);
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong!");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerText = "Submit";
+    }
+  });
+</script>
+ 
+</html>

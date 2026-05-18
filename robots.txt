@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /form/
+Disallow: /PHPMailer/
+ 
+ 
+ 
+Sitemap: https://forestsatai.com/sitemap.xml
